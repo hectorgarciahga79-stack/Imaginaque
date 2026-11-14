@@ -124,3 +124,4 @@ anim3d/subs_q27.py
 anim3d/subs_q28.py
 anim3d/subs_q29.py
 anim3d/subs_q30.py
+anim3d/lux.py
