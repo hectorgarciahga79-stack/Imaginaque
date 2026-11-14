@@ -1,0 +1,685 @@
+{
+ "estilo": "cine 2,5D (motor cairo cine.py): ilustración plana con profundidad, luz, viñeta, grano, tarjetas. Sin 3D ni IA de imagen/vídeo. Sin rótulo superior. (Decisión de Héctor 29-10-2026; el motor 3D m3d queda aparcado.)",
+ "voz": {
+  "voice_id": "30jLfQdV8RTduXvosh02",
+  "nombre": "Juanjo Viral – Energetic & Punchy (hombre, castellano de España)",
+  "model_id": "eleven_v4",
+  "flow_id": "1SQesMcyvPai6CTHxkg6"
+ },
+ "protagonista": "Teo: pelo oscuro despeinado, sudadera azul petróleo, pantalón gris, zapatillas claras (cine.teo). Personaje propio; no copiar personajes de otros canales.",
+ "formato": "v8: capítulos 60–75 s naturales (sin relleno; END_PAD=2.2 para la cartela CONTINUARÁ). Formato B 45–62 s sin relleno. Cartela de película 1,6 s.",
+ "series": [
+  {
+   "id": "ZOMBI",
+   "nombre": "Persiana Bajada",
+   "genero": "apocalipsis zombi (ficción con consejos reales)",
+   "protagonista": "Teo (pelo oscuro despeinado, sudadera azul petróleo, pantalón gris)",
+   "voz": {
+    "voice_id": "30jLfQdV8RTduXvosh02",
+    "nombre": "Juanjo Viral"
+   },
+   "capitulos_previstos": 30,
+   "arco": [
+    "1 Supermercado: persiana, silencio, agua → alguien más dentro",
+    "2 Lía, cajera escondida en congelados; desconfianza",
+    "3 Racionar: calorías y agua para dos",
+    "4 El ruido del generador del barrio",
+    "5 Noche 1: turnos de guardia",
+    "6 Un herido golpea la persiana",
+    "7 Higiene: heridas e infección",
+    "8 La radio: emisoras de emergencia",
+    "9 Inventario de medicinas de la farmacia de enfrente",
+    "10 Cruzar la calle: rutas y distracciones",
+    "11 La farmacia no está vacía",
+    "12 Volver con menos de lo que salió",
+    "13 El calor y la comida que se pudre",
+    "14 Potabilizar agua del depósito",
+    "15 Otro grupo en el tejado de enfrente",
+    "16 Señales con espejos y linternas",
+    "17 Negociar: agua por medicinas",
+    "18 La traición",
+    "19 Abandonar el súper",
+    "20 La ciudad de noche",
+    "21 El metro",
+    "22 Refugio en un colegio",
+    "23 Reglas del grupo",
+    "24 Enfermedad en el refugio",
+    "25 La radio vuelve a sonar",
+    "26 Rumor de zona segura",
+    "27 El viaje",
+    "28 Puesto militar",
+    "29 La cuarentena",
+    "30 Final: ¿zona segura o trampa?"
+   ],
+   "protagonista_2d": "cine.TEO",
+   "tagline": "Un súper. Una persiana. Nadie sabe quién sigue dentro.",
+   "hashtag": "#persianabajada",
+   "portada_base": {
+    "base": "tiktok/portadas/zombi.png",
+    "bx": 0.68,
+    "by": 0.86
+   }
+  },
+  {
+   "id": "APAGON",
+   "nombre": "Planta 8",
+   "genero": "apagón total de una semana",
+   "protagonista": "Marta (melena castaña recogida, chaqueta mostaza)",
+   "voz": {
+    "voice_id": "30jLfQdV8RTduXvosh02",
+    "nombre": "Juanjo Viral"
+   },
+   "capitulos_previstos": 20,
+   "arco": [
+    "1 Primeras horas: ascensor, agua, nevera → llaman a la puerta",
+    "2 La vecina del 9º sin agua",
+    "3 Radio a pilas y noticias",
+    "4 Velas e incendios",
+    "5 Monóxido: nunca braseros ni generadores dentro",
+    "6 Día 2: el móvil sin batería",
+    "7 Cajeros y pagos sin luz",
+    "8 Comida: qué se estropea primero",
+    "9 Frío en casa: capas y una sola habitación",
+    "10 El portal sin luz por la noche",
+    "11 Vecinos que se organizan",
+    "12 Medicinas que necesitan frío",
+    "13 El edificio de enfrente se incendia",
+    "14 Agua del tejado",
+    "15 Rumores en el barrio",
+    "16 Día 5: cansancio y peleas",
+    "17 Un generador comunitario",
+    "18 La luz vuelve… a medias",
+    "19 Lo que falló",
+    "20 Qué tener en casa (final)"
+   ],
+   "protagonista_2d": "cine.MARTA",
+   "tagline": "Una semana sin luz. Ocho pisos de escaleras.",
+   "hashtag": "#planta8",
+   "portada_base": {
+    "base": "tiktok/portadas/planta8.png",
+    "bx": 0.5,
+    "by": 0.8
+   }
+  },
+  {
+   "id": "SOLAR",
+   "nombre": "Aurora Roja",
+   "genero": "tormenta solar extrema tipo Carrington (1859)",
+   "protagonista": "Iker (pelo rapado, anorak rojo)",
+   "voz": {
+    "voice_id": "30jLfQdV8RTduXvosh02",
+    "nombre": "Juanjo Viral"
+   },
+   "capitulos_previstos": 20,
+   "arco": [
+    "1 Auroras sobre España",
+    "2 El evento Carrington de 1859 y los telégrafos",
+    "3 Satélites y GPS caídos",
+    "4 Aviones sin navegación",
+    "5 Transformadores quemados",
+    "6 Sin pagos con tarjeta",
+    "7 Sin agua bombeada",
+    "8 Hospitales con generadores",
+    "9 Combustible: colas en las gasolineras",
+    "10 Comida en el supermercado: 3 días",
+    "11 Comunicaciones: radioaficionados",
+    "12 El frío",
+    "13 Las ciudades se vacían",
+    "14 El campo",
+    "15 Trueque",
+    "16 Primeras reparaciones",
+    "17 Los transformadores tardan meses",
+    "18 La red vuelve por zonas",
+    "19 Lo aprendido",
+    "20 ¿Podría pasar mañana? (final)"
+   ],
+   "protagonista_2d": "cine.IKER",
+   "tagline": "El cielo se tiñó de colores. Luego se apagó el mundo.",
+   "hashtag": "#auroraroja"
+  }
+ ],
+ "episodios": {
+  "C1": {
+   "serie": "APAGON",
+   "ep": 1,
+   "title": "Apagón en un 8º piso",
+   "scenes": [
+    [
+     "Si un apagón de una semana te pilla en un octavo piso, no bajes corriendo a la calle.",
+     ""
+    ],
+    [
+     "Porque sin darte cuenta, ya tienes encima tu mayor problema. Y no es la oscuridad.",
+     ""
+    ],
+    [
+     "Son las siete de la tarde y Marta está sola en casa cuando todo se apaga.",
+     ""
+    ],
+    [
+     "Su primer impulso es coger el ascensor. Mala idea.",
+     ""
+    ],
+    [
+     "En el gran apagón de dos mil veinticinco, solo en Madrid, hubo doscientos ochenta y seis rescates en ascensores.",
+     ""
+    ],
+    [
+     "Así que Marta vuelve a casa. Y abre el grifo...",
+     ""
+    ],
+    [
+     "En muchos edificios, el agua sube con bombas eléctricas. Sin luz, solo llega hasta el segundo o tercer piso.",
+     ""
+    ],
+    [
+     "Marta llena todo lo que encuentra. La bañera, las ollas, las botellas.",
+     ""
+    ],
+    [
+     "Luego, la nevera. Cerrada, aguanta unas cuatro horas. El congelador lleno, unas cuarenta y ocho.",
+     ""
+    ],
+    [
+     "Por eso no la abre. Ni una vez.",
+     ""
+    ],
+    [
+     "Sobre el papel, podría aguantar varios días aquí arriba.",
+     ""
+    ],
+    [
+     "Solo había un problema. Alguien estaba llamando a su puerta.",
+     ""
+    ]
+   ],
+   "tagged": "(30-10-2026) rehecho con Gala; ver Bandeja C1",
+   "fuentes": [
+    "https://www.elpais.com.co/mundo/realizan-286-rescates-en-ascensores-en-madrid-por-el-apagon-estas-son-las-historias-2833.html (286 rescates en ascensores en Madrid, 28-4-2025)",
+    "https://www.xatakahome.com/hogar/que-agua-salga-poca-fuerza-problemon-hay-muchas-soluciones-solo-legal-funciona-no-deja-secos-a-vecinos (grupo de presión eléctrico; sin luz el agua llega a 2º-3º)",
+    "https://extension.wvu.edu/food-health/food-safety-readiness/food-safety-power-outages (nevera cerrada ≈4 h; congelador lleno ≈48 h)"
+   ],
+   "animacion": "anim/scenes_c.py (SCENES['C1'])",
+   "voz": "Gala"
+  },
+  "Z1": {
+   "serie": "ZOMBI",
+   "ep": 1,
+   "title": "Apocalipsis zombi",
+   "estado": "producido 29-10-2026",
+   "animacion": "anim/scenes_z.py"
+  },
+  "C5": {
+   "serie": "APAGON",
+   "ep": 5,
+   "title": "Planta 8 · Parte 5",
+   "animacion": "anim/scenes_c5.py (SCENES['C5'], COVER['C5'])",
+   "voz": "Gala",
+   "estado": "producido 30-10-2026"
+  },
+  "C20": {
+   "serie": "APAGON",
+   "ep": 20,
+   "title": "Planta 8 · Parte 20 (FINAL)",
+   "animacion": "anim/scenes_c20.py (SCENES['C20'])",
+   "voz": "Juanjo Viral",
+   "estado": "producido 06-11-2026 11:00 · programado TikTok 08-11-2026 16:30 · Planta 8 TERMINADA"
+  }
+ },
+ "tema": "Apocalipsis y supervivencia (decisión de Héctor 29-10-2026). Ficción (zombis) o catástrofes con base real (tormenta solar, supervolcán, asteroide, pandemia, invierno nuclear…). Los consejos y cifras siempre reales y verificados.",
+ "presupuesto": {
+  "inicio_ciclo": "2026-10-29",
+  "limite_creditos": 125000,
+  "nota": "Coste ≈1.250 créditos de voz por capítulo. 30-10-2026: rehechos C1–C4 y Z1 con Gala (5.699 créditos).",
+  "ritmo": "3 capítulos/día salvo miércoles y domingos (2/día: la ejecución de las 19:00 descansa) ≈ 19 capítulos/semana ≈ 3.400 créditos/día de media. Si el ritmo de gasto no llega a fin de ciclo, se salta también la de las 19:00 (y si va muy justo, solo produce la de las 03:00).",
+  "ritmo_v8": "3 vídeos/día (2 ¿Y si…? ≈1.000 créditos + 1 capítulo ≈1.250), 2 los miércoles y domingos ≈ 19/semana. Si restante ÷ días < 3.000, la de las 19:00 no produce; si < 2.000, solo la de las 03:00."
+ },
+ "teo_3d": "Prompt fijo del personaje en 3D: 'a young man with messy dark hair, teal hoodie and grey trousers', estilo 'stylized 3D animated film (soft clay-like materials, rounded shapes, cinematic lighting)'. Sin logos, sin texto, sin personajes conocidos.",
+ "orden_produccion": "v8 (04-11-2026): las historias que ya están en marcha se continúan en orden, sin saltar capítulos (Planta 8: C18–C20, final). Historias NUEVAS: solo piloto (capítulo 1) y validación con datos antes del capítulo 2 (estrategia_v8.pilotos). Persiana Bajada y Aurora Roja pasan a ser pilotos (Z1 ya producido).",
+ "rehacer_en_3d": [
+  "Z1 y C1: hechos en 3D el 29-10-2026"
+ ],
+ "publicacion": {
+  "metricool_blogId": "7038346",
+  "tiktok": "imaginaquepasara",
+  "url_publica": "litterbox",
+  "autorizacion": "Héctor dio permiso expreso el 29-10-2026 para subir cada vídeo a un alojamiento temporal público solo para que Metricool lo recoja.",
+  "como": "Descarga el mp4 de la Bandeja (Artifact read con path = asset_id, uno por llamada). Súbelo a Litterbox (72 h): curl -sS -m 120 -F reqtype=fileupload -F time=72h -F fileToUpload=@VID.mp4 https://litterbox.catbox.moe/resources/internals/api.php → devuelve https://litter.catbox.moe/xxxx.mp4. Reintenta hasta 3 veces si hay 'Connection reset'. Usa esa URL en media de createScheduledPost: Metricool copia el vídeo a static.metricool.com al programarlo, así que el enlace temporal solo tiene que vivir unos minutos.",
+  "franjas": [
+   "13:30",
+   "16:30",
+   "19:30",
+   "22:00"
+  ],
+  "ya_programados": {
+   "A2": "29-10 19:30",
+   "A3": "29-10 22:00",
+   "B1": "30-10 13:30",
+   "B2": "30-10 16:30",
+   "B3": "30-10 19:30",
+   "N20261028": "30-10 22:00",
+   "S1": "31-10 13:30",
+   "S2": "31-10 16:30",
+   "S3": "31-10 19:30",
+   "C1": "31-10 22:00",
+   "Z1": "BORRADOR (sin fecha) hasta que acabe Planta 8"
+  },
+  "cola_atrasados": [],
+  "orden": "Igual que la producción: en fila. Antes de que empiece Planta 8 se publican las historias sueltas ya hechas (Atravesar la Tierra, S1, S2, S3), cada una entera. Después, Planta 8 cap. 1, 2, 3… hasta el final; luego Persiana Bajada (el cap. 1, Z1, está en Metricool como BORRADOR: al terminar Planta 8 se le pone fecha en la primera franja libre), y así sucesivamente.",
+  "espaciado": "Un capítulo cada franja (13:30, 16:30, 19:30, 22:00 Madrid), mínimo 2 h 30 min entre publicaciones; nunca varios de golpe."
+ },
+ "nombres_de_pelicula": "Cada historia tiene título de película (decisión de Héctor 29-10-2026). Al empezar una historia nueva, invéntale un título corto de película (1–3 palabras, evocador, sin copiar títulos existentes conocidos) + tagline. El vídeo abre con la cartela 'NOMBRE / CAPÍTULO n' (campo \"movie\" en scripts.json).",
+ "perfil_tiktok": {
+  "nombre": "ImaginaQue · Historias",
+  "bio": "Historias de apocalipsis en capítulos 🎬 ¿Sobrevivirías tú? Nuevo cap. cada día",
+  "listas": [
+   "Persiana Bajada",
+   "Planta 8",
+   "Aurora Roja"
+  ]
+ },
+ "cola_historias": [
+  "APAGON (terminar C18–C20)",
+  "pilotos según estrategia_v8.pilotos"
+ ],
+ "voces": {
+  "regla": "Decisión de Héctor 05-11-2026: NUNCA voces de mujer (Gala no consigue visitas). SOLO voces de HOMBRE en castellano de España (acento peninsular), nunca latinas. Voz por defecto para todo (capítulos, pilotos y ¿Y si…?): Juanjo Viral 30jLfQdV8RTduXvosh02. En suspense/terror, la misma voz con etiquetas [tense], [whispers], [dramatic], [serious]. Alternativas masculinas peninsulares si hiciera falta variar (verificar antes en creative_list_voices que siguen siendo hombre y es-peninsular): Ezequiel EGuq18jUC3ilTnuBn2wj (grave, misterio), Adrián 5Cz4t26dDYTfYJXKmlJ4 (cálido), Pepe Pérez wE08CsISVmQQZBTsMI7Q (narración). Prohibidas: Gala, Lauli y cualquier voz femenina; cualquier voz con acento latino (p. ej. Lorenzo 9VIVvGo8sgpRzsz9ndfa, descrita como latinoamericana). Nunca inventes un voice_id. (Anterior, 30-10-2026: suspense → Gala; queda SUSTITUIDA.)",
+  "asignadas": {
+   "ZOMBI": "30jLfQdV8RTduXvosh02 (Juanjo Viral)",
+   "APAGON": "30jLfQdV8RTduXvosh02 (Juanjo Viral)",
+   "SOLAR": "30jLfQdV8RTduXvosh02 (Juanjo Viral)"
+  },
+  "banco": [
+   {
+    "id": "Wi5NZQRxyOb3Jx4r0hrI",
+    "nombre": "Gala",
+    "tipo": "mujer joven, España · fresca, enérgica (suspense/terror) · PROHIBIDA desde 05-11-2026 (voz de mujer)"
+   },
+   {
+    "id": "30jLfQdV8RTduXvosh02",
+    "nombre": "Juanjo Viral",
+    "tipo": "hombre, España · enérgico, para TikTok"
+   },
+   {
+    "id": "xH6DmlUWSqhSmFog5gxa",
+    "nombre": "Dani · YouTuber",
+    "tipo": "hombre joven, España · rápido, ganchos"
+   },
+   {
+    "id": "IS9ukcVx7FF1JjqjC96I",
+    "nombre": "Dani juvenil",
+    "tipo": "hombre joven, España"
+   },
+   {
+    "id": "LG5CpCuzWTE7pUsAnHo2",
+    "nombre": "David",
+    "tipo": "hombre, España (Andalucía) · cálido, conversacional"
+   },
+   {
+    "id": "YSps38t7HBzNIVEwgKAy",
+    "nombre": "Eduardo",
+    "tipo": "hombre, España (Málaga) · narrador cercano"
+   },
+   {
+    "id": "rdJys7ZIyHdNwqoXSrBg",
+    "nombre": "Marco Suave",
+    "tipo": "España · narrativa tranquila"
+   },
+   {
+    "id": "gsZnHdnP18WS4pk0OHqd",
+    "nombre": "Lauli",
+    "tipo": "mujer joven, España · conversacional · PROHIBIDA desde 05-11-2026 (voz de mujer)"
+   },
+   {
+    "id": "EGuq18jUC3ilTnuBn2wj",
+    "nombre": "Ezequiel",
+    "tipo": "hombre, España · grave, misterioso (alternativa para suspense)"
+   }
+  ]
+ },
+ "portada_y_partes": "Decisión de Héctor 30-10-2026: todos los vídeos con portada divertida y llamativa (anim/cover.py; primeros 0,6 s y asset aparte). Numeración por partes dentro de la misma historia: la 1 sin número; desde la 2, «Parte n» (portada, cartelas, title y pie). Nunca «Cap.». Desde el 30-10-2026 (noche), Héctor ha dado imágenes de portada propias: si la serie tiene `portada_base`, se usa esa imagen con anim/cover_img.py (insignia «PARTE n» desde la parte 2); si no, se dibuja con anim/cover.py.",
+ "independientes": {
+  "nombre": "¿Y si…?",
+  "decision": "Héctor 04-11-2026: además de las historias por capítulos, vídeos independientes de hipótesis imposibles/curiosidades. Ningún formato sustituye al otro.",
+  "prefijo_id": "Q (Q1, Q2, Q3…)",
+  "voz": {
+   "voice_id": "30jLfQdV8RTduXvosh02",
+   "nombre": "Juanjo Viral (hombre, castellano de España, enérgico)",
+   "model_id": "eleven_v4",
+   "nota": "Voz masculina de España, también en temas inquietantes (zombis, fin del mundo): nunca voces de mujer (Héctor 05-11-2026). Etiquetas [excited]/[serious]/[dramatic]/[tense], ritmo alto."
+  },
+  "estilo": "2,5D cine (cine.py + engine.py), paleta luminosa y de día (no la oscura del apocalipsis). Sin imágenes ni vídeo de IA. Ejemplo completo: anim/scenes_q1.py (personitas `mini`, mar `sea`, cartelas stat_card/chip, globo, regla, lupa, cortes de agua). Alterna estilos entre ¿Y si…? seguidos (cine luminoso, stickman de scenes_s, Leo 2D de scenes_a/b, mapa/infografía).",
+  "formato": {
+   "duracion": "v8 (04-11-2026, por datos): 45–62 s SIN relleno; hablado 700–900 caracteres; 9–12 escenas, cambio visual cada 1–3 s. Los ¿Y si…? de 50–57 s del 30–31 oct los vieron enteros el 17,6–25,9 % frente al 2–4 % de los capítulos de 66–75 s; la monetización (>1 min) exige antes 10.000 seguidores. Q1 (72,6 s) servirá de comparación.",
+   "estructura": [
+    "0–2 s GANCHO: la pregunta «Si… ¿qué pasaría?» con la escena ya en movimiento (nada de pantalla vacía)",
+    "Planteamiento con el dato real 1",
+    "ESCALADA: 2–3 consecuencias cada vez más sorprendentes, cada una con una cifra verificada",
+    "GIRO inesperado (la intuición falla / pero hay un problema…)",
+    "Cierre impactante en una frase + PREGUNTA para comentar (¿qué harías tú?, ¿dónde…?)"
+   ],
+   "reglas": "Cifras SIEMPRE verificadas con WebSearch/WebFetch (cita fuentes en notes) y cálculos propios explicados en notes. Si es especulación, se dice como hipótesis. Nada de personajes/marcas protegidos. Sin cartela de película ni «Parte». Título en scripts.json sin movie.",
+   "portada": "cover.py VID --scene scenes_qN:VID:0:0.75 --movie \"¿Y si…?\" --hook \"LÍNEA 1|LÍNEA 2\" --sticker \"¿PREGUNTA CORTA?\" (máx. ~14 caracteres en la pegatina para que no se corte); revísala con Read.",
+   "fila_bandeja": "series \"YSI\", story = pregunta, part 1, parts 1, style cine, hashtags 5–6 con #imaginaque #quepasariasi #curiosidades + 2 temáticos."
+  },
+  "hechos": {
+   "Q1": "¿Y si todos saltáramos al mar a la vez? (04-11-2026)",
+   "Q2": "¿Y si los zombis corrieran? (05-11-2026, zombis/apocalipsis, Gala)",
+   "Q3": "¿Y si al parpadear aparecieras 1 metro más allá? (05-11-2026, cuerpo, Juanjo Viral, estilo Leo 2D)",
+   "Q4": "¿Y si drenáramos el mar y lo consiguiéramos? (05-11-2026, petición de seguidores vía Héctor, espacio/Tierra)",
+   "Q5": "¿Y si despertaras en un anime con poderes? (06-11-2026, poderes/ficción + zombis, Juanjo Viral, estilo manga luminoso nuevo: anim/scenes_q5.py)",
+   "Q6": "¿Y si la Tierra se parara 1 segundo? (06-11-2026, espacio/Tierra · catástrofe planetaria, Juanjo Viral, estilo Leo 2D luminoso: anim/scenes_q6.py)",
+   "Q7": "¿Qué pasaría si un tiranosaurio apareciera en tu calle? (07-11-2026, animales/dinosaurios, Juanjo Viral, 3D de bloques: shots_q7.py + dino.py)",
+   "Q8": "¿Qué pasa si mil millones de zombis salen del mar? (07-11-2026, zombis/apocalipsis, Juanjo Viral, 3D de bloques: shots_q8.py; playa + fondo marino + sonar)",
+   "Q9": "¿Y si un día apareciera un agujero negro en tu salón? (09-11-2026, espacio/física, Juanjo Viral, 3D de bloques: shots_q9.py; salón + balanza + Tierra en corte + ping-pong; protagonista Nico)",
+   "Q10": "¿Qué pasaría si mañana despertaras con superfuerza? (09-11-2026, cuerpo/poderes, Juanjo Viral, 3D de bloques: shots_q10.py; dormitorio + laboratorio (fémur, barras) + calle (pared, coche, camión) + vuelo; protagonista Iván)",
+   "Q11": "¿Y si todos los volcanes del mundo entraran en erupción a la vez? (10-11-2026, zombis/apocalipsis · catástrofe planetaria, Juanjo Viral, 3D de bloques: shots_q11.py; planeta de vóxeles con penachos + pueblo con volcán partido + sala de datos (Tambora, termómetro, barras CO2) + campo/aeródromo; protagonista Lucas)",
+   "Q12": "¿Qué pasaría si mañana la Tierra fuera un cubo? (11-11-2026, espacio/Tierra · física rota, Juanjo Viral, 3D de bloques: shots_q12.py; planeta-cubo de vóxeles (seco / 6 océanos redondos / lava), cubo de alambre con distancias, llanura que se inclina (rampa de gravedad), esquina sin aire, Everest vs esquina, colapso a bola y mini planeta-cubo; protagonista Mateo, sudadera naranja)"
+  },
+  "banco_ideas": [
+   "¿Y si el Sol se encogiera al tamaño de un balón y aterrizara en tu jardín?",
+   "¿Y si tu sombra cobrara vida y pudiera irse sin ti?",
+   "¿Qué pasaría si tu móvil pudiera llamar a tu yo de hace 10 años?",
+   "¿Y si un día lloviera hacia arriba?",
+   "¿Qué pasaría si pudieras saltar entre planetas como en un videojuego? (gravedad de la Luna, Marte, Júpiter)",
+   "¿Y si la Luna se acercara hasta tocar las nubes?",
+   "¿Y si cada vez que estornudas el mundo se reiniciara 1 minuto?",
+   "¿Y si tu poder fuera parar el tiempo pero solo 3 segundos al día? (qué harías con ellos; física del aire quieto)",
+   "¿Y si despertaras dentro de un videojuego y solo tuvieras 3 vidas?",
+   "¿Y si pudieras volar como un superhéroe? (velocidad, frío a 10 km de altura, aviones, mosquitos en la cara)",
+   "¿Y si un día despertaras como un personaje de dibujos animados? (gravedad que solo actúa cuando miras abajo)",
+   "¿Y si todos los humanos tuviéramos un superpoder al azar mañana?",
+   "¿Y si la Tierra dejara de girar solo 1 segundo? (ecuador a ~1.670 km/h; todo lo que no está atornillado sigue)",
+   "¿Y si todos los humanos saltáramos a la vez en el mismo sitio? (la Tierra apenas se mueve; el problema es volver a casa)",
+   "¿Y si tuvieras que gastar 1 millón de euros cada día? (qué se puede comprar; impuestos; cuánto dura una fortuna)",
+   "¿Y si vivieras 500 años? (interés compuesto, idiomas, ver crecer una secuoya, pensiones)",
+   "¿Y si pudieras parar el tiempo 10 minutos? (el aire sería como muro, sin luz que llegue a tus ojos)",
+   "¿Y si mañana la gravedad fuera el doble? (subir escaleras, aviones, el corazón)",
+   "¿Y si desapareciera la Luna? (mareas, noches, eje de la Tierra)",
+   "¿Y si todos los animales pudieran hablar? (cuántos animales hay por persona; qué dirían las hormigas)",
+   "¿Y si todo el oro extraído de la historia estuviera en tu salón? (cabe en un cubo de ~22 m de lado)",
+   "¿Y si cada persona del mundo te diera 1 céntimo?",
+   "¿Y si el Sol se apagara ahora mismo? (8 min 20 s sin enterarte)",
+   "¿Y si una cucharadita de estrella de neutrones cayera en tu cocina?",
+   "¿Y si dejaras de dormir? (récord de Randy Gardner, 11 días)",
+   "¿Y si se derritiera todo el hielo del planeta? (+~70 m: qué ciudades españolas quedan bajo el agua)",
+   "¿Y si el Everest estuviera en mitad de Madrid?",
+   "¿Y si fueras del tamaño de una hormiga durante un día?",
+   "¿Y si un día entero el mundo se quedara sin internet?",
+   "¿Y si pusiéramos en fila todos los coches del mundo?",
+   "¿Y si el mar fuera de agua dulce?",
+   "¿Y si los humanos hibernáramos en invierno?",
+   "¿Y si oyeras el Sol? (lo que sonaría si el sonido viajara por el espacio)",
+   "¿Y si llovieran gotas del tamaño de una casa?",
+   "¿Y si fueras la última persona en la Tierra? (cuánto aguantan la luz, el agua y las ciudades)",
+   "¿Y si todos los mosquitos desaparecieran mañana?",
+   "¿Y si el día durase solo 1 hora?",
+   "¿Y si cada mentira te hiciera crecer 1 cm?",
+   "¿Y si tuvieras vista de águila?",
+   "¿Y si toda la humanidad viviera en un solo edificio? (cuántas plantas)",
+   "¿Y si pudieras escuchar todas las conversaciones del mundo a la vez?",
+   "¿Cuántos días durarías en un apocalipsis zombi en tu ciudad? (agua, comida, ruido)",
+   "¿Y si los zombis corrieran? (cuánto aguanta un humano corriendo frente a alguien que no se cansa)",
+   "¿Y si el apocalipsis zombi empezara mientras vas en el metro?",
+   "¿Y si los zombis pudieran oler el miedo? (puente con el piloto «Lo Huelen»)",
+   "¿Y si solo quedaran 100 personas en el mundo? (¿cuánto duran internet, la luz, las presas?)",
+   "¿Y si un asteroide fuera a caer en 30 días y todos lo supiéramos?",
+   "¿Y si desaparecieran todos los móviles del mundo a la vez?",
+   "¿Y si todo el mundo pudiera leer tus pensamientos durante 24 h?",
+   "¿Y si cada noche durmieras 1 hora menos que la anterior?",
+   "¿Y si encontraras un billete de 500 € cada vez que estornudas?",
+   "¿Y si las hormigas fueran del tamaño de un perro?"
+  ],
+  "regla_banco": "Toma la primera idea del banco que no esté en `hechos`; si ninguna convence o falta un dato verificable, inventa una nueva (original, absurda pero calculable) y añádela. Nunca repitas una ya hecha (mira también los títulos de A1–A3, B1–B3, S1–S3, N2026…).",
+  "regla_variedad": "No repetir categoría (dinero, cuerpo, espacio/Tierra, tiempo, sociedad, animales, física, zombis/apocalipsis) en dos ¿Y si…? seguidos. Al menos 1 de cada 3 sobre zombis/apocalipsis/supervivencia (puente hacia las series). Los hashtags que funcionaron: #quepasariasi #curiosidades #aprendeentiktok.",
+  "tono_v9": "Héctor 05-11-2026 (19:30): «vídeos mucho más locos». Los ¿Y si…? deben ser más absurdos, exagerados y divertidos: premisas imposibles y visuales (poderes, mundos de ficción, catástrofes a escala planetaria), escalada cada vez más loca y giro final. Nueva línea pedida: «¿Y si despertaras en un anime con poderes?» y variantes (con poderes, dentro de un videojuego, de dibujos animados…). Siempre con personajes, estilos y nombres ORIGINALES (nada de personajes, ataques, logos o nombres de anime existentes) y con datos reales donde los haya (p. ej. cuánta energía hace falta, qué le pasaría al cuerpo). Petición de seguidores: «¿Y si drenáramos el mar y lo consiguiéramos?» → Q4.",
+  "titulos_variantes": [
+   "¿Y si…?",
+   "¿Qué pasaría si…?",
+   "¿Qué pasa si…?",
+   "¿Y si un día…?",
+   "¿Qué pasaría si mañana…?"
+  ],
+  "titulos_nota": "Héctor 06-11-2026: seguir con los «¿Y si…?» y variar la fórmula. Alterna la fórmula de un vídeo al siguiente; «¿Qué pasaría si…?» encaja en las hipótesis con más ciencia y «¿Y si…?» en las más locas. Id Q<n> y serie YSI sin cambios.",
+  "tono_v10": "Héctor 06-11-2026 ~20:15: los ¿Y si…? / ¿Qué pasaría si…? y las mini-historias tienen que ser SÚPER LOCOS: cosas casi imposibles de que pasen pero que molen mucho (física rota, catástrofes cósmicas, poderes, criaturas, tiempo, escalas absurdas). Escalada en cada escena hacia algo más bestia, imagen imposible en el primer segundo, giro final. Se mantiene: datos reales y cálculos cuando se pueda (y decir cuándo es ficción o estimación), personajes y nombres originales, nada de marcas ni personajes protegidos.",
+  "lista_hector": {
+   "fecha": "2026-11-11",
+   "estado": "Q13–Q20 = versiones explicativas retiradas/descartadas. Mini historias Q21–Q30 (las 10 seleccionadas), todas ≥ 61 s, voz Juanjo Viral, 3D de bloques.",
+   "ideas": [
+    "Empiezas con 1 € y cada hora duplicas tu fortuna.",
+    "Cada hora eres 10 veces más pequeño.",
+    "La Tierra se congela en 24 horas.",
+    "Eres el último humano del planeta.",
+    "Naces con un millón de euros, pero pierdes 1.000 € cada minuto.",
+    "Te despiertas en el año 3000.",
+    "Te quedas atrapado en un supermercado durante 100 días.",
+    "Eres invisible durante una semana.",
+    "Puedes retroceder 10 segundos en el tiempo.",
+    "Los animales empiezan a gobernar el planeta.",
+    "El Sol empieza a apagarse lentamente.",
+    "La gravedad aumenta un 10 % cada semana.",
+    "Tu cuerpo empieza a fabricar oro en lugar de sangre.",
+    "Puedes vender tus recuerdos.",
+    "Cada noche despiertas en un planeta diferente.",
+    "Cada persona tiene un clon que vive exactamente lo contrario.",
+    "La humanidad pierde la capacidad de dormir.",
+    "Todos los humanos pueden leer los pensamientos de los demás.",
+    "Cada persona puede ver cuánto tiempo le queda de vida.",
+    "La humanidad descubre que existe otra civilización debajo de la Tierra.",
+    "Un meteorito impactará contra la Tierra dentro de siete días.",
+    "¿Qué pasaría si fueras el único hombre de toda la Tierra y todas las demás personas fueran mujeres?",
+    "¿Qué pasaría si fueras la única mujer de toda la Tierra y todas las demás personas fueran hombres?"
+   ],
+   "hechas_mini_historia": {
+    "1": "Q21 El euro que se duplicaba cada hora",
+    "2": "Q22 El chico que encogía cada hora",
+    "5": "Q23 El bebé que perdía mil euros por minuto",
+    "21": "Q24 Siete días antes del asteroide",
+    "19": "Q25 Nueve minutos",
+    "9": "Q26 Diez segundos",
+    "13": "Q27 Sangre de oro",
+    "11": "Q28 El invernadero de Nora",
+    "22": "Q29 Un bombero más",
+    "23": "Q30 La radio de Lucía"
+   },
+   "seleccion_10": {
+    "nota": "Héctor (11-11-2026): producir solo las ideas 1, 22 y 23 + 7 elegidas por potencial de audiencia (datos del canal: dinero y catástrofe planetaria rinden más). Elegidas: 2, 5, 9, 11, 13, 19, 21.",
+    "ideas": [
+     1,
+     2,
+     5,
+     9,
+     11,
+     13,
+     19,
+     21,
+     22,
+     23
+    ]
+   }
+  }
+ },
+ "calendario": {
+  "decision": "Héctor 04-11-2026: combinar historias por capítulos e independientes ¿Y si…?, sin que uno sustituya al otro.",
+  "produccion": "03:00 → ¿Y si…? · 11:00 → capítulo de la serie activa o piloto (estrategia_v8.pilotos) · 19:00 → ¿Y si…? (miércoles y domingos descansa; reglas de ritmo del paso 1b). Si ya hay 3 o más ¿Y si…? listos sin programar, la de las 03:00 o la de las 19:00 hace capítulo/piloto.",
+  "tiktok": {
+   "13:30": "¿Y si…? (la franja con mejores resultados hasta ahora)",
+   "16:30": "capítulo o piloto",
+   "19:30": "¿Y si…?",
+   "22:00": "desde el 12-11-2026 (estrategia_v11): solo si hay 3 o más vídeos en cola (A o B, alternando), nunca dos A de la misma historia el mismo día",
+   "reglas": "un vídeo por franja, ≥2 h 30 min entre publicaciones, máx. 4/día, capítulos siempre en orden; si falta un ¿Y si…? para su franja, no se rellena con capítulos salvo que haya 3+ capítulos en cola"
+  },
+  "youtube": {
+   "canal": "OtraRealidadXX (UCGg6XX6kUy5AFkyokILCXqw)",
+   "14:00": "¿Y si…?",
+   "17:30": "capítulo o piloto",
+   "20:00": "¿Y si…?",
+   "reglas": "Shorts; capítulos en orden y en la lista «Planta 8 · Apagón total» (o la lista de su historia; si no existe, créala con el nombre de la historia); título «gancho | <Historia> · Parte n» o, para ¿Y si…?, la pregunta + emoji; descripción con resumen + consejos/datos reales + hashtags terminados en #shorts; 6 etiquetas; no creado para niños; sin promoción de pago; Uso de IA: Sí; zona horaria «Hora local (GMT+01:00)». Registro en el campo yt_status de la fila.",
+   "nota_v8": "Mismo reparto que TikTok (sin datos propios de YouTube todavía: revisarlos en los aprendizajes del lunes)."
+  },
+  "decision_v8": "04-11-2026, por datos del canal: los ¿Y si…? rinden 3–8 veces más que los capítulos. Mezcla ≈12 ¿Y si…? + 7 capítulos/pilotos por semana. Se cambia el reparto anterior (2 capítulos : 1 ¿Y si…?).",
+  "nota_v11": "Prueba del 12 al 18-11: 3 publicaciones/día (13:30 B · 16:30 A · 19:30 B). Se revisa el lunes 16-11 con los aprendizajes."
+ },
+ "estrategia_v8": {
+  "fecha": "04-11-2026",
+  "origen": "Petición de Héctor 04-11-2026: dos líneas de contenido (A historias por capítulos, B hipótesis/curiosidades independientes), pilotos validados con datos, prioridad zombis/apocalipsis/supervivencia, experimentación continua, calidad antes que cantidad. Imágenes: se mantiene la animación 2,5D propia, sin imágenes ni vídeo de IA (decisión de Héctor 04-11-2026).",
+  "datos_base_04_11": {
+   "B_hipotesis": "6 vídeos de 50–57 s publicados 30–31 oct: 12K, 6,5K, 3,5K, 2K, 2K, 1,3K visualizaciones; vistos enteros 17,6 % (1.000 millones) y 25,9 % (doble cada 10 s); tiempo medio 21–24 s (~40 %); me gusta 2,3–2,8 %; el de 1.000 millones trajo 18 de los 39 seguidores.",
+   "A_Planta8": "Partes 1–11: 580–920 visualizaciones cada una, estables; vistos enteros 2,2 % (parte 1) y 3,6 % (parte 6); tiempo medio 17,6 s (parte 1) y 6,2 s (parte 6) en vídeos de 66–75 s; me gusta 1–2,7 %; 2–3 seguidores por vídeo.",
+   "conclusion": "El formato B rinde de 3 a 8 veces más y retiene 5–10 veces mejor. Planta 8 no cumple los umbrales de piloto, pero está a 3 capítulos del final: se termina (C18–C20) por respeto a quien la sigue y no se alarga. Las cartelas largas de inicio (3 s) y el relleno final hasta 66 s castigaban la retención: se acortan/eliminan.",
+   "monetizacion": "El Creator Rewards Program pide 10.000 seguidores y 100.000 visualizaciones en 30 días (y, según Metricool, España no figura entre los países admitidos). Hasta acercarnos a 10.000 seguidores se optimiza retención y seguidores, no la duración >60 s."
+  },
+  "calendario": {
+   "franjas": {
+    "13:30": "B (la franja con mejores resultados hasta ahora)",
+    "16:30": "A (capítulo de la serie activa o piloto)",
+    "19:30": "B",
+    "22:00": "solo si hay cola: A (piloto o serie) — nunca dos A seguidas de la misma historia el mismo día"
+   },
+   "produccion": {
+    "03:00": "B (para la franja 13:30 del día siguiente o la primera libre)",
+    "11:00": "A (capítulo de la serie activa, o piloto nuevo)",
+    "19:00": "B (descansa miércoles y domingos y si el ritmo de créditos lo exige)"
+   },
+   "mezcla": "≈12 B + 7 A por semana. Nunca más de 2 vídeos seguidos del mismo formato publicados en el día. Entre dos publicaciones, mínimo 2 h 30 min."
+  },
+  "pilotos": {
+   "regla": "Historia NUEVA = solo capítulo 1 (piloto). No se produce el 2 hasta que el piloto supere la validación. Máximo 3 pilotos en evaluación a la vez y 1–2 series activas.",
+   "evaluacion": "A las 72 h de publicado (mínimo 48 h y 500 visualizaciones), en TikTok Studio → Estadísticas → vídeo: visualizaciones, tiempo medio, % que lo ve entero, me gusta, comentarios, compartidos, nuevos seguidores y comentarios que piden la siguiente parte. Se anota en la Bandeja, colección `metricas` (doc = VID).",
+   "umbral_funciona": "Cumple al menos 3 de 6: visualizaciones ≥ 1.500 · vistos enteros ≥ 10 % · tiempo medio ≥ 35 % de la duración · me gusta/visualizaciones ≥ 2,5 % · ≥ 3 seguidores nuevos · ≥ 1 comentario pidiendo continuación. Si cumple 2: «dudoso», se espera 48 h más y se decide. Si cumple 0–1: «descartado» (no se hacen más capítulos; se prueba otra idea distinta).",
+   "cola_pilotos": [
+    {
+     "id": "Z1",
+     "nombre": "Persiana Bajada",
+     "estado": "DESCARTADO el 11-11-2026: 1 de 6 en umbral_funciona (910 vis., 6 % enteros, 22 % tiempo medio, 3,4 % me gusta, 1 seguidor). No se hacen partes 2 y 3."
+    },
+    {
+     "id": "SO1",
+     "nombre": "Aurora Roja",
+     "estado": "por producir (piloto)"
+    },
+    {
+     "id": "ZC1",
+     "nombre": "Lo Huelen",
+     "idea": "Zombis que detectan el miedo por el olor: Nora, enfermera de urgencias, tiene que cruzar el hospital sin acelerar el pulso. Consejos reales: respiración para bajar pulsaciones, cómo moverse en un edificio a oscuras.",
+     "estado": "idea"
+    },
+    {
+     "id": "ZD1",
+     "nombre": "Turno de Noche",
+     "idea": "El apocalipsis empieza mientras trabajas: Bruno, vigilante nocturno de un centro comercial, 30 días encerrado. Consejos reales de supervivencia en interiores.",
+     "estado": "idea"
+    },
+    {
+     "id": "CI1",
+     "nombre": "Los Últimos Cien",
+     "idea": "Solo quedan 100 personas en el mundo y Ainhoa recibe una señal de radio desde Lisboa. Mezcla de supervivencia y misterio; datos reales sobre radio y orientación.",
+     "estado": "idea"
+    }
+   ]
+  },
+  "mejora_continua": "Cada lunes, la ejecución de las 11:00 revisa las métricas de los últimos 7 días (colección `metricas`) y anota en `aprendizajes` (doc = fecha): qué ganchos, categorías, estilos, voces y franjas rinden más; ajusta banco_ideas, calendario y umbrales. Decisiones con datos (≥ 300 visualizaciones por vídeo), no por intuición."
+ },
+ "estilo_3d": {
+  "fecha": "06-11-2026",
+  "decision": "Héctor aprobó la prueba T1 («¿Qué pasaría si despertaras con el poder de controlar el tiempo?», 59,4 s) y pidió que TODOS los vídeos se hagan con esa animación 3D de bloques.",
+  "motor": "anim3d/ (setup3d.sh, vox.py, person.py, world.py, render.py, post.py, subs.py; plantilla shots_t1.py + audio_t1.py)",
+  "guia": "https://claude.ai/artifact/1enNUk3WwXyR6amfhLsZSM",
+  "voces_T1": {
+   "narrador": "30jLfQdV8RTduXvosh02 Juanjo Viral",
+   "protagonista": "xH6DmlUWSqhSmFog5gxa Dani · Energetic Spanish YouTuber",
+   "misterioso": "EGuq18jUC3ilTnuBn2wj Ezequiel"
+  },
+  "render": "≈1–1,5 h por vídeo de 60 s en 2 procesos; un vídeo 3D por ejecución como máximo"
+ },
+ "miniseries_3d": {
+  "decision": "Héctor 06-11-2026 ~19:45 (chat): además de los ¿Y si…? / ¿Qué pasaría si…?, algunas mini-historias de 3 capítulos con la animación 3D de bloques (anim3d/). Ocupan la franja de capítulos (producción 11:00, publicación 16:30).",
+  "formato": "3 partes cerradas de 55–70 s. Parte 1: gancho «Si X te pilla en Y…», 2 REGLAS reales, cliffhanger y «CONTINUARÁ». Parte 2: complica y añade 1–2 REGLAS. Parte 3: desenlace con giro + pregunta al espectador y «FIN». Narrador Juanjo Viral con [tense]/[whispers]/[dramatic]; diálogos opcionales con voces de hombre peninsulares (ver manual). Ids M<n>A/B/C; series = clave de la historia; movie = nombre; part 1–3.",
+  "motor": "anim3d/ (vóxeles y personajes de bloques originales; plantilla shots_t1.py). Una parte por ejecución; si el render no termina, prod_status «render en curso» y la siguiente ejecución lo retoma.",
+  "reglas": "Cada mini-historia empezada se termina. Una parte por día, en orden. Protagonista y decorado propios por historia, iguales en las 3 partes (shots_<vid>.py en el Motor). Personajes, nombres y lugares originales. Consejos verificados con fuente en notes.",
+  "en_curso": {
+   "id": "M1",
+   "series": "GRAVEDAD",
+   "movie": "Caída al Cielo",
+   "hecho": [
+    "M1A",
+    "M1B",
+    "M1C"
+   ],
+   "siguiente": "ninguna: M1 terminada y Z1 descartado (11-11-2026). La próxima ejecución de las 11:00 (12-11-2026) empieza M2 «Cien Como Yo» (parte 1). Nota: la ejecución del 11-11 ~11:00 produjo por error de reloj un formato B (Q12) en vez de M2A.",
+   "nota": "M1A producido el 07-11-2026 (75,0 s, shots_m1a.py en el Motor: Nora, cuarto con techo en RO=(0,200,0), ventana WIN=(4.0,5.93,5.0) en la fachada norte de City, nubes a z≈48–62). Cliffhanger: el marco de la ventana empieza a soltarse con Nora colgada de él. TikTok 09-11 16:30 · YouTube 08-11 17:30.",
+   "nota_m1b": "M1B producido el 08-11-2026 (77,8 s, shots_m1b.py en el Motor; importa shots_m1a). Nora cuelga con gravedad hacia arriba: hang(N, x,y,z_manos, face) (face 0 = mira a la pared, 180/270 = a la calle). Balcones BAL en x=6.3/9.5/12.7 (y=5.45, z=2.7); farola de la esquina LAMP=(18,3.4), manos a z=1.5. Borde de la zona invertida: partículas en x=edge_x(T), avanza de x=23 a x=37; coches aparcados normales en PARK (x=26…52). REGLAS #3 brazos estirados y #4 prueba el agarre. Cliffhanger: la zona avanza calle a calle y Nora tendrá que correr colgada más rápido que ella.",
+   "nota_m1c": "M1C producido el 10-11-2026 (74,1 s, shots_m1c.py en el Motor; importa shots_m1b y shots_m1a). Barandilla RAIL x 24,5–35,5 (y=5,72, z=1,2); farolas norte en x=18/24/30/36 (LY=3,4); el borde se frena en x=38,5; Nora se balancea en la farola x=36, cruza el borde y aterriza en x≈45,5 (REGLA #5: pies y rodillas juntos y rodar de lado; demo de un vecino desde un muro en x=45); torre alta TOWER en x=50 (azotea z≈22,8, Nora en ROOF); ciudades lejanas en (-150,30), (-175,-60), (-120,115) perdiendo coches. Final: el planeta entero se está girando; pregunta «¿a qué te agarrarías?» y «FIN»."
+  },
+  "cola": [
+   {
+    "id": "M1",
+    "series": "GRAVEDAD",
+    "movie": "Caída al Cielo",
+    "protagonista": "Nora (pelo castaño recogido, chaqueta mostaza, vaqueros oscuros)",
+    "decorado": "calle de ciudad de bloques boca abajo, coches flotando, nubes por debajo",
+    "arco": "P1: a las 3:07 de la madrugada la gravedad de toda la ciudad se invierte; Nora se despierta pegada al techo y ve coches caer hacia el cielo. P2: hay que moverse agarrándose a farolas y bajos de balcones mientras la gente sube flotando; descubre que la zona invertida avanza calle a calle. P3: llega al borde donde la gravedad vuelve a ser normal… y desde arriba ve que el resto del planeta también ha empezado a girarse. Pregunta: ¿a qué te agarrarías tú?",
+    "datos_a_verificar": "velocidad de caída libre (≈9,8 m/s²), a qué altura empieza a faltar oxígeno (unos 8.000 m), temperatura en altura",
+    "estado": "terminada (partes 1, 2 y 3 producidas; validación de la parte 1 cuando se publique la 3)"
+   },
+   {
+    "id": "M2",
+    "series": "COPIAS",
+    "movie": "Cien Como Yo",
+    "protagonista": "Darío (gorra roja, sudadera gris)",
+    "decorado": "plaza y metro de ciudad de bloques llenos de copias idénticas",
+    "arco": "P1: Darío se despierta y hay cien copias exactas de él por la ciudad, y solo una es la original. P2: las copias empiezan a desaparecer cada hora y nadie sabe si la siguiente es él. P3: queda una copia cara a cara con él; giro: el original nunca fue él.",
+    "datos_a_verificar": "(ficción) datos reales de apoyo: cuántas células del cuerpo se renuevan; gemelos idénticos y huellas dactilares distintas"
+   },
+   {
+    "id": "M3",
+    "series": "BUCLE",
+    "movie": "Sesenta Segundos",
+    "protagonista": "Lucía (abrigo verde, mochila amarilla)",
+    "decorado": "azotea y calles de ciudad de bloques con un meteorito en el cielo",
+    "arco": "P1: un meteorito va a caer sobre la ciudad y el tiempo se rebobina cada 60 segundos; solo Lucía lo recuerda. P2: en cada bucle avanza un poco más hacia el único sitio desde donde se puede desviar. P3: lo consigue en el último bucle… y el reloj se para del todo.",
+    "datos_a_verificar": "velocidad típica de entrada de un meteorito (≈11–72 km/s), Cheliábinsk 2013, tamaño del de Tunguska"
+   },
+   {
+    "id": "M4",
+    "series": "HIELO",
+    "movie": "Madrid Congelado",
+    "protagonista": "Iván (chaqueta azul, bufanda naranja)",
+    "decorado": "ciudad de bloques congelada en una noche, hielo y nieve",
+    "arco": "P1: una glaciación instantánea congela Madrid en una noche y algo se mueve bajo el hielo. P2: lo que sale del hielo no es humano: zombis congelados que despiertan con el calor. P3: la única salida es no dar calor… giro final.",
+    "datos_a_verificar": "hipotermia: a partir de qué temperatura corporal; cómo conservar el calor (capas, cubrir cabeza)"
+   }
+  ],
+  "aprendido": [
+   "11-11-2026 (valoración): Planta 8, Z1 y M1 (personajes en tercera persona, 70–78 s) se quedan en ~800 vis. y 2–6 % enteros; la única serie que funcionó fue «mil millones» (B1–B3: 13.000 → 3.557 → 1.304), con dinero y un número que escala."
+  ],
+  "tono": "Héctor 06-11-2026 ~20:15: los ¿Y si…? / ¿Qué pasaría si…? y las mini-historias tienen que ser SÚPER LOCOS: cosas casi imposibles de que pasen pero que molen mucho (física rota, catástrofes cósmicas, poderes, criaturas, tiempo, escalas absurdas). Escalada en cada escena hacia algo más bestia, imagen imposible en el primer segundo, giro final. Se mantiene: datos reales y cálculos cuando se pueda (y decir cuándo es ficción o estimación), personajes y nombres originales, nada de marcas ni personajes protegidos."
+ },
+ "estrategia_v11": {
+  "fecha": "2026-11-11 (23:45)",
+  "origen": "Héctor 11-11-2026 por chat: «haz una valoración de cada vídeo, la popularidad que tenga y basándote en ello cambia la dinámica de los vídeos, ideas, etc. Encárgate de eso». Decisiones tomadas por Claude con los datos de TikTok Studio del 11-11 a las 23:44.",
+  "valoracion": {
+   "top": "B1 «Te despiertas con mil millones en tu cuenta» 13.000 vis. (18 seguidores, 17,6 % enteros) · S1 «Cada 10 s el doble de grande» 6.609 (25,9 %) · B2 3.557 (26,3 %) · S2 2.054 · S3 2.014 (27,4 %) · B3 1.304 · N20261028 1.296. Todos del 30–31 oct: TÚ como protagonista, dinero o tu cuerpo, un número que escala, 44–57 s, 2D sencillo.",
+   "medio": "¿Y si…? de noviembre: 750–1.125 vis. Mejores: Q6 Tierra parada 1 s (1.125, 20,6 % enteros, 24,9 s medio), Q8 zombis del mar (1.084), Q3 parpadeo (1.053), Q4 drenar el mar (892, 17,7 %). Flojos: Q7 tiranosaurio (764, 3,7 %), Q5 anime (808, 8,1 %).",
+   "bajo": "Capítulos de historias: Planta 8 C1–C20 ≈750–950 vis. con 2–4 % de vistos enteros y 6–18 s de media (abandonan en el segundo 1); Z1 910 (6 %, descartado); mini-historia M1 «Caída al Cielo» 762–783 (partes 1–2). Duraciones de 70–78 s.",
+   "conclusiones": [
+    "Desde el 1-nov casi todo se queda en la tanda de prueba de ~800 visualizaciones: ningún vídeo rompe.",
+    "Lo que rompió: hipótesis en segunda persona con algo que GANAS o te PASA A TI (dinero, tu cuerpo) y un número que se dispara; ninguna historia de personajes en tercera persona ha superado 950.",
+    "Más largo = peor: los mejores duran 51–57 s; los capítulos de 70–78 s retienen 2–4 %.",
+    "Las series en partes solo funcionaron cuando eran un ¿Y si…? en segunda persona (mil millones 1/3→3/3: 13.000→3.557→1.304).",
+    "El 3D de bloques no ha mejorado los números frente al 2D (Q3/Q6 en 2D: 1.053/1.125; Q7/Q5 en 3D: 764/808), pero es decisión de Héctor y se mantiene."
+   ]
+  },
+  "reglas": [
+   "1. Manda la orden de Héctor: mini historias con protagonista, ≥ 61 s, ideas de lista_hector en su orden.",
+   "2. Duración: ≥ 61 s, pero apuntando a 61–66 s. Los datos dicen que a partir de ~70 s se hunde el % de vistos enteros (capítulos de 70–78 s: 2–4 %).",
+   "3. Qué priorizar dentro de la lista: premisas de DINERO o del CUERPO del protagonista con un número que escala (los únicos que han roto: 13.000 y 6.600 vis.). Catástrofes planetarias y criaturas, como máximo 1 de cada 3.",
+   "4. Gancho: en los 2 primeros segundos, la cifra o el objeto imposible en grande y una frase que interpele al espectador («Si te pasara a ti…», «¿Qué harías tú?»), aunque luego sigamos al protagonista.",
+   "5. Historias en varias partes: solo si la parte 1 supera 2× la mediana (≈1.600 vis.) o hay comentarios pidiendo la siguiente; las sagas largas en tercera persona (Planta 8, M1) no han pasado de ~950.",
+   "6. Publicación (prueba del 12 al 18-11): 3 al día (13:30 · 16:30 · 19:30); 22:00 solo con 3 o más vídeos en cola. Revisión el lunes 16-11.",
+   "7. Medir cada vídeo contra la mediana de noviembre (≈800 vis., ≈5 % enteros): si un tipo supera 2× la mediana, 2 más de ese tipo esa semana; si dos seguidos quedan por debajo, cambiar de tipo.",
+   "8. Estilo 3D de bloques (orden de Héctor), con planos sencillos: un elemento principal por plano y cifras grandes."
+  ],
+  "compatibilidad": "Se ajusta a la orden de Héctor del mismo 11-11 (MINI HISTORIAS ≥ 61 s con protagonista, lista_hector), que manda. Donde los datos apuntaban a otra cosa (vídeos de 45–58 s, segunda persona) se deja como observación, no como regla."
+ }
+}
