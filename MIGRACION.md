@@ -36,7 +36,7 @@ En el repositorio solo había un README. **El motor no existía en git**: ahora 
 | 1 | Transcripción (faster-whisper) | ✅ Tras abrir Hugging Face en el entorno: voz del Q30 transcrita (184 palabras, coincide con el guion). |
 | 1 | Bandeja | ✅ 67 filas leídas. Siguiente id libre: Q31 / M2A. Sin renders en curso ni duplicados publicables. |
 | 2 | Generación de ideas | ✅ `produccion/Q31_idea.md`: idea 14 de la lista de Héctor, comprobada contra duplicados, con un dato verificado y presentado como estimación, y un guion de 843 caracteres (~64 s) con planos. No se ha gastado voz. |
-| 3–4 | Vídeo completo, edición y exportación | RESULTADO_RENDER |
+| 3–4 | Vídeo completo, edición y exportación | ✅ Q30 reconstruido de principio a fin en la nube con su voz original (sin gastar créditos): 1.856 fotogramas 3D (~25 min en 2 procesos), etalonaje `post_q9`, audio propio a −14,4 LUFS / −0,4 dBTP, 178 subtítulos karaoke y montaje final 1080×1920, 77,3 s (60 MB) + copia para TikTok de 6,9 MB. 12 fotogramas revisados: correctos. Hizo falta instalar Mesa/EGL, ya incluido en `bootstrap.sh`. |
 | 5 | YouTube | ✅ vidIQ conectado a OtraRealidadXX (UCGg6XX6kUy5AFkyokILCXqw, 90 suscriptores, 41 vídeos) con `canPublish: true`. ⚠️ vidIQ tiene **0 créditos** hasta el 20-11-2026: hasta entonces no puede listar los vídeos programados ni publicar por esa vía. No se ha publicado nada. |
 | 5 | TikTok | ❌ **No verificable desde la nube.** La cuenta imaginaquepasara solo se maneja desde el Chrome de Héctor, y en esta sesión no hay ningún ordenador conectado. Según la Bandeja, hay vídeos programados hasta el 16-11-2026 13:30 (verificados en su día en Studio). |
 | 6 | Automatizaciones | Ver la sección 5. |

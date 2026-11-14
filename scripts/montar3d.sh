@@ -32,7 +32,9 @@ echo "[5/5] montaje final"
 ffmpeg -v error -y -framerate 24 -i "$PP/p%05d.png" -i "mix_n_$vid.wav" \
   -vf "scale=1080:1920:flags=lanczos,unsharp=5:5:0.4,ass=subs_$vid.ass:fontsdir=/home/claude/tiktok/fonts" \
   -c:v libx264 -preset medium -crf 21 -maxrate 6M -bufsize 12M -pix_fmt yuv420p -c:a aac -b:a 192k -movflags +faststart -shortest "final/$VID.mp4"
-ffmpeg -v error -y -i "final/$VID.mp4" -c:v libx264 -preset medium -crf 28 -maxrate 1.2M -bufsize 2.4M -pix_fmt yuv420p \
+# copia < 10 MB para subir desde Chrome: bitrate máximo calculado con la duración (objetivo 9,3 MB)
+VBR=$(python3 -c "print(int(9.3*8*1024/float('$TOTAL') - 128))")
+ffmpeg -v error -y -i "final/$VID.mp4" -c:v libx264 -preset medium -crf 28 -maxrate ${VBR}k -bufsize $((VBR*2))k -pix_fmt yuv420p \
   -c:a aac -b:a 128k -movflags +faststart "final/${VID}_tt.mp4"
 ls -la "final/$VID.mp4" "final/${VID}_tt.mp4"
 echo "MONTAJE OK $VID"
