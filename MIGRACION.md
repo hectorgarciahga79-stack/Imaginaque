@@ -39,7 +39,7 @@ En el repositorio solo había un README. **El motor no existía en git**: ahora 
 | 3–4 | Vídeo completo, edición y exportación | ✅ Q30 reconstruido de principio a fin en la nube con su voz original (sin gastar créditos): 1.856 fotogramas 3D (~25 min en 2 procesos), etalonaje `post_q9`, audio propio a −14,4 LUFS / −0,4 dBTP, 178 subtítulos karaoke y montaje final 1080×1920, 77,3 s (60 MB) + copia para TikTok de 6,9 MB. 12 fotogramas revisados: correctos. Hizo falta instalar Mesa/EGL, ya incluido en `bootstrap.sh`. |
 | 5 | YouTube | ✅ vidIQ conectado a OtraRealidadXX (UCGg6XX6kUy5AFkyokILCXqw, 90 suscriptores, 41 vídeos) con `canPublish: true`. ⚠️ vidIQ tiene **0 créditos** hasta el 20-11-2026: hasta entonces no puede listar los vídeos programados ni publicar por esa vía. No se ha publicado nada. |
 | 5 | TikTok | ❌ **No verificable desde la nube.** La cuenta imaginaquepasara solo se maneja desde el Chrome de Héctor, y en esta sesión no hay ningún ordenador conectado. Según la Bandeja, hay vídeos programados hasta el 16-11-2026 13:30 (verificados en su día en Studio). |
-| 6 | Automatizaciones | Ver la sección 5. |
+| 6 | Automatizaciones | ⚠️ Tarea en la nube creada (decisión de Héctor) pero **pausada**: se guardó sin el conector ElevenLabs. Ver la sección 5. |
 
 ## 4. Qué sigue dependiendo de servicios externos
 - **ElevenLabs** (voz): créditos del plan. Hay que reconectar el conector para poder leer el saldo.
@@ -50,7 +50,8 @@ En el repositorio solo había un README. **El motor no existía en git**: ahora 
 - Pendientes que ya estaban en la Bandeja: YouTube con límite diario de subida para Q24, Q26, Q28, Q29 y Q30. Q2 necesita que Héctor borre la versión anterior.
 
 ## 5. Automatización
-La tarea programada original está desactivada desde el 11-11 y suspendida porque necesitaba el ordenador de Héctor. **No se ha reactivado ni modificado.** Opciones (decide Héctor):
-1. **Producción en la nube:** una tarea nueva en el entorno Imaginaque que ejecute la skill `imaginaque-produccion`. Produce, revisa y deja el vídeo «listo» en la Bandeja, **sin publicar**. Cada vídeo gasta ~1.000–1.150 créditos de ElevenLabs.
-2. **Reactivar la tarea original** cuando el ordenador de Héctor esté encendido. Habría que actualizar su texto para que pida confirmación antes de publicar, porque ahora publica sola.
-3. Publicar siempre en una sesión con Héctor presente: la cola sale de `scripts/cola.py`.
+- **Original** «ImaginaQue · Producción (3 al día)» (`trig_01Ny3yd7d6jXVyg9RUGrMReK`): desactivada desde el 11-11 y suspendida por *device_absent*. Se queda así, sin tocar.
+- **Nueva** «ImaginaQue · Producción en la nube (sin publicar)» (`trig_018XhKjaJwFLVwymH7p9PKfj`), elegida por Héctor el 14-11-2026: mismo horario (02:56 · 10:56 · 18:56, hora de Madrid), en el entorno Imaginaque, una sesión nueva por ejecución. Produce un vídeo como máximo, lo deja «listo» en la Bandeja con «Pendiente de confirmación de Héctor» y **nunca publica**.
+  - Estado: **pausada**. Desde una sesión no se le puede poner conectores, así que se creó sin ElevenLabs y sin voz no puede producir.
+  - Para activarla: en claude.ai → tareas programadas → esta tarea, añade el conector **ElevenLabs** y actívala. Si alguna ejecución no encuentra ElevenLabs, termina sin producir e informa.
+- La publicación (TikTok por Chrome; YouTube por Chrome o vidIQ) se hace en una sesión con Héctor, después de su «sí». La cola sale de `scripts/cola.py`.
