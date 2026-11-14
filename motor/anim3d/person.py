@@ -1,7 +1,7 @@
 """Personaje de bloques articulado (original): cabeza grande, cara de «píxeles» en relieve
 (ojos con pupila y brillo, cejas, boca que se abre), brazos con codo y mano con pulgar e índice,
 piernas con rodilla. Pivotes = empties; el posado se hace por ángulos."""
-import math
+import math, zlib
 from vox import *
 
 LEO = dict(skin="#F2C9A0", hair="#5A3820", hair2="#7A5030", eye="#2B4A8A", top="#2C8C9C", top2="#22707D",
@@ -24,7 +24,7 @@ FIG = dict(skin="#B8B0C0", hair="#141218", hair2="#141218", eye="#B46CFF", top="
 class Person:
     def __init__(self, name, L, h=1.0):
         s = h; self.s = s; self.n = name; self.L = L
-        M = lambda c, tag=None: tmat(f"{name}_{tag or c}", c, 8, 0.06, hash(name+c) % 999) if True else mat(c)
+        M = lambda c, tag=None: tmat(f"{name}_{tag or c}", c, 8, 0.06, zlib.crc32((name+c).encode()) % 999) if True else mat(c)
         self.root = group(name)
         self.hips = group(name+"_hips", (0, 0, 0.78*s), self.root)
         # torso (pivote en cadera)
@@ -84,7 +84,9 @@ class Person:
             box(f"{name}_sh{sx}b", (0, -0.035*s, -0.355*s), (0.25*s, 0.33*s, 0.09*s), mat(L['shoe']), kn)
             box(f"{name}_sole{sx}", (0, -0.035*s, -0.392*s), (0.255*s, 0.335*s, 0.025*s), mat(L['shoe2']), kn)
             self.hp[sx] = hpp; self.kn[sx] = kn
-        self.blink_off = (hash(name) % 100)/37.0
+        self.blink_off = (zlib.crc32(name.encode()) % 100)/37.0
+        self.ph = (zlib.crc32((name+'ph').encode()) % 1000)/159.0      # fase propia: nadie se mueve igual
+        self.bper = 2.9+(zlib.crc32((name+'bl').encode()) % 100)/55.0  # cada uno parpadea a su ritmo
 
     def _hair(self, name, L, s, hs):
         st = L.get('hstyle', 'leo'); H = mat(L['hair']); H2 = mat(L['hair2'])
@@ -132,12 +134,19 @@ class Person:
         self.thumb[sx].rotation_euler = (-thumb, 0, 0); self.index[sx].rotation_euler = (-index, 0, 0)
 
     def idle(self, t, amp=1.0):
-        b = math.sin(t*2.0)
+        """reposo vivo: respiración, transferencia de peso y brazos con frecuencias propias (sin simetrías)"""
+        p = self.ph; s_ = self.s
+        br = math.sin(t*1.9+p)                                    # respiración ~0,3 Hz
+        sw = 0.6*math.sin(t*0.47+p*1.3)+0.4*math.sin(t*0.83+p*2.1)  # balanceo lento del peso
         for sx in (-1, 1):
-            self.arm(sx, fwd=0.04*amp*b*sx, side=0.08, elbow=0.18+0.03*b)
-            self.leg(sx, 0.0, 0.0); self.fingers(sx, 0.3, 0.4)
-        self.hips.location.z = 0.78*self.s + 0.004*b*self.s
-        self.hips.rotation_euler = (0, 0, 0); self.chest.rotation_euler = (-0.02*b*amp, 0, 0)
+            q = p+(0.9 if sx > 0 else 0.0)
+            self.arm(sx, fwd=amp*(0.035*math.sin(t*0.9+q)+0.015*math.sin(t*2.3+q*1.7)), side=0.08+0.015*math.sin(t*0.7+q),
+                     elbow=0.18+0.035*math.sin(t*1.1+q)+0.02*br)
+            self.leg(sx, 0.012*sw*sx*amp, 0.02+0.03*max(0.0, sw*sx)*amp); self.fingers(sx, 0.3, 0.4+0.06*math.sin(t*1.3+q))
+        self.hips.location.z = 0.78*s_ + 0.004*br*s_ - 0.004*abs(sw)*s_
+        self.hips.location.x = 0.012*sw*amp*s_
+        self.hips.rotation_euler = (0, -0.018*sw*amp, 0.02*math.sin(t*0.39+p)*amp)
+        self.chest.rotation_euler = (-0.02*br*amp, 0.012*sw*amp, -0.015*math.sin(t*0.61+p)*amp)
 
     def walk(self, ph, speed=1.0, run=False):
         """ph = fase en ciclos; ciclo de paso con rodilla, contrabalanceo de brazos y rebote"""
@@ -146,11 +155,13 @@ class Person:
         for sx in (-1, 1):
             k = sx*s
             self.leg(sx, fwd=A*k, knee=max(0, -sx*c)*(1.3 if run else 0.7)+0.05)
-            self.arm(sx, fwd=-A*0.9*k, side=0.07, elbow=(1.3 if run else 0.35)+0.15*max(0, k))
+            kl = sx*math.sin(ph*2*math.pi-0.35)                     # el brazo va algo retrasado respecto a la pierna
+            self.arm(sx, fwd=-A*0.9*kl, side=0.07, elbow=(1.3 if run else 0.35)+0.15*max(0, kl))
             self.fingers(sx, 0.4, 0.8 if run else 0.4)
         self.hips.location.z = 0.78*self.s + abs(c)*(0.05 if run else 0.025)*self.s - (0.04 if run else 0)*self.s
-        self.hips.rotation_euler = (0, 0, 0.08*s)
-        self.chest.rotation_euler = (-(0.22 if run else 0.04), 0, -0.1*s)
+        self.hips.rotation_euler = (0, 0.035*c, 0.08*s)
+        self.hips.location.x = 0.018*c*self.s*(0.6 if run else 1.0)
+        self.chest.rotation_euler = (-(0.22 if run else 0.04)-0.02*abs(c), -0.02*c, -0.1*s)
 
     def face(self, t, expr="neutral", look=(0.0, 0.0), talk=0.0, blink=True, brow=None):
         """expr: neutral, happy, shock, worried, smirk, scared, angry, sad. talk 0..1 abre la boca."""
@@ -166,8 +177,8 @@ class Person:
             b.rotation_euler = (0, tilt, 0)
         bl = 1.0
         if blink:
-            ph = (t + self.blink_off) % 3.3
-            if ph < 0.12: bl = 0.12
+            ph = (t + self.blink_off) % self.bper
+            if ph < 0.18: bl = 1.0-0.88*math.sin(math.pi*ph/0.18)**0.8
         for i, sx in enumerate((-1, 1)):
             self.eyes[i].scale = (1, 1, ey*bl); self.pup[i].scale = (1, 1, bl*(0.9 if expr in ("shock", "scared") else 1.0))
             self.pup[i].location.x = sx*0.125*s + look[0]*0.03*s
@@ -180,4 +191,6 @@ class Person:
         self.mouth.rotation_euler = (0, 0.18 if expr == "smirk" else 0.0, 0)
         hid(self.teeth, not (expr in ("happy",) or op > 0.35))
         self.teeth.location.z = 0.152*s + 0.02*op*s
-        self.head.rotation_euler = (-look[1]*0.25, 0, -look[0]*0.35)
+        p = self.ph
+        self.head.rotation_euler = (-look[1]*0.25+0.025*math.sin(t*0.73+p)+0.012*math.sin(t*1.9+p*2), 0.02*math.sin(t*0.51+p*1.4),
+                                    -look[0]*0.35+0.03*math.sin(t*0.43+p*0.7))

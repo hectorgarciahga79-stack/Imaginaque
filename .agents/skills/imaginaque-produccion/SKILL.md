@@ -31,6 +31,15 @@ Cuando crees o cambies archivos del motor (`shots_<vid>.py`, `audio_<vid>.py`, `
 - Voz: **una** llamada a `creative_generate_speech`, `generations_count` = 1. Descárgala a `/home/claude/anim/build/<VID>/voice.wav` (mono) y guárdala también en la Bandeja como asset.
 - Palabras con tiempos: `asr.transcribe` → `/home/claude/t3d/au/<vid>_words.json` (WER < 0,08).
 - Planos: `shots_<vid>.py` a partir de `shots_t1.py` o del vídeo más parecido. QA con `SHOTS=shots_<vid> python3 render.py stills` y revisión de `/tmp/st3` con Read (dos pasadas), y después `render.py preview 4 0/1`.
+- **Aspecto cinematográfico (por defecto, `LOOK=cine`, desde el 14-11-2026):** `render.py` guarda también la profundidad y la cámara de cada fotograma. Después `anim3d/lux.py` añade:
+  - luz principal con temperatura según `M["grade"]`, relleno cielo/suelo y contraluz;
+  - filo de luz en los bordes, oclusión ambiental y niebla por distancia;
+  - cielo con degradado, sol, nubes y estrellas;
+  - rayos de sol, motas de polvo o brasas en 3D y brillo de las luces prácticas;
+  - profundidad de campo, desenfoque de movimiento de cámara, transición de entrada en cada plano y tonemapping fílmico.
+
+  También hay micro-movimiento de cámara tipo steadicam (`HANDHELD=0` lo quita). `LOOK=classic` deja exactamente el aspecto anterior. Si un plano necesita otra atmósfera, basta con poner bien su `M["grade"]`: day, field, dawn, cafe, room, office, lab, day_sad, cold, rain, night, alarm, deep, abyss o sonar.
+- Previsualizar un tramo con el aspecto final: `RANGO=ini:fin FR=/tmp/x SHOTS=shots_<vid> python3 render.py frames 0/1`, y luego `lux.py` y el `post` sobre esa carpeta. Para fotogramas sueltos: `render.py probe 5.0,12.0` con `LUX_PROBE=1`.
 - Montaje completo, reanudable: `bash scripts/montar3d.sh <vid> <TOTAL> <post_modulo>` en segundo plano (`run_in_background`). Encadena los fotogramas (2 procesos), el etalonaje, el audio con normalización a -14 LUFS, los subtítulos y el ffmpeg final, y saca `/home/claude/t3d/final/<VID>.mp4` y `<VID>_tt.mp4` (< 10 MB).
 - Si la sesión se corta, vuelve a lanzar el mismo comando: los fotogramas hechos se saltan. Mientras tanto, en la Bandeja la fila queda con `prod_status: "render en curso"`.
 - QA final: 12 fotogramas del montaje revisados con Read. Si algo falla, se corrige y no se publica.

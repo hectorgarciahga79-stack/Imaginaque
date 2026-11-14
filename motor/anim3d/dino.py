@@ -1,3 +1,4 @@
+import zlib
 """Tiranosaurio, gallina y bici de bloques (diseños originales) para Q7."""
 import math
 from vox import *
@@ -6,7 +7,7 @@ class TRex:
     """~14 u de largo (≈12 m), cadera a 3,9 u. Mira hacia +X por defecto (face=0 → +X)."""
     def __init__(self, name, col="#5E7A3A", belly="#C8B07A", s=1.0):
         self.s = s; self.n = name
-        G = tmat(f"{name}_skin", col, 8, 0.14, hash(name) % 997)
+        G = tmat(f"{name}_skin", col, 8, 0.14, zlib.crc32(name.encode()) % 997)
         D = tmat(f"{name}_dark", "#3E5428" if col == "#5E7A3A" else col, 8, 0.12, 5)
         Bm = mat(belly)
         self.root = group(name)
