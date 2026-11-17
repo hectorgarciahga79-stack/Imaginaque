@@ -76,7 +76,7 @@ def cycles_devices():
         bpy_version = bpy.app.version_string
     except Exception:
         bpy_version = None
-    return {"bpy": bpy_version, "backends": found, "oidn": "OPENIMAGEDENOISE" in [i.identifier for i in bpy.types.CyclesRenderSettings.bl_rna.properties["denoiser"].enum_items]}
+    return {"bpy": bpy_version, "backends": found, "oidn": bool(getattr(__import__("_cycles"), "with_openimagedenoise", False))}
 
 
 def benchmark_device(cfg, res=(270, 480), samples=16):

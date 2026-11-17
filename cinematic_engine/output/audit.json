@@ -1,0 +1,28 @@
+{
+  "system": {
+    "os": "Linux-6.18.44-fc-v553-x86_64-with-glibc2.39",
+    "python": "3.13.18",
+    "python_executables": {
+      "python3": "Python 3.13.18",
+      "python3.11": "Python 3.11.18",
+      "python3.12": "Python 3.12.3",
+      "python3.13": "Python 3.13.18"
+    },
+    "cpu": "Intel(R) Xeon(R) Processor @ 2.10GHz",
+    "cpu_threads": 4,
+    "ram_gb": 16.5,
+    "disk_free_gb": 29.9,
+    "ffmpeg": "ffmpeg version 6.1.1-3ubuntu5 Copyright (c) 2000-2023 the FFmpeg developers",
+    "blender_exe": "Blender 4.0.2",
+    "gpus": []
+  },
+  "cycles": {
+    "bpy": "5.3.0",
+    "backends": {},
+    "oidn": true
+  },
+  "selected_device": {
+    "device": "CPU"
+  },
+  "selected_profile": "cpu_balanced"
+}
