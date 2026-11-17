@@ -1,0 +1,7 @@
+.venv
+__pycache__/
+*.pyc
+projects/*/renders/
+projects/*/render_log.txt
+projects/*/audio/stem_*.wav
+*.blend1

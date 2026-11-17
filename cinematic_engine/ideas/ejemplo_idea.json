@@ -1,0 +1,17 @@
+{
+  "title": "Huida en la Bahía",
+  "base": "storyboards/persecucion_costa_neon.json",
+  "hero_paint": [0.02, 0.35, 0.9],
+  "underglow": [0.1, 0.9, 1.0],
+  "seed": 21,
+  "titles": [{"text": "BAHÍA ROTA", "start": 0.3, "end": 3.5, "kicker": "03:00 · SIN TESTIGOS"}],
+  "narration_file": "assets/narration/bahia_rota.mp3",
+  "shots": [
+    {"type": "aerial", "duration": 4, "say": "Bahía Rota. Las tres de la mañana."},
+    {"type": "travelling", "duration": 4, "say": "Un coche azul que nadie ha visto antes."},
+    {"type": "side_tracking", "duration": 2, "actor": "poli1", "say": "Hasta ahora."},
+    {"type": "front_reverse", "duration": 3},
+    {"type": "orbit", "duration": 4, "slowmo": 0.35, "fx": ["tire_smoke", "skid_marks"], "say": "Un giro."},
+    {"type": "crane_out", "duration": 3, "say": "Y desaparece."}
+  ]
+}

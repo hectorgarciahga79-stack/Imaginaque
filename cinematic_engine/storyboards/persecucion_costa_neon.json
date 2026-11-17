@@ -1,0 +1,1171 @@
+{
+  "title": "Persecución en Costa Neón",
+  "description": "Un deportivo rojo cruza de noche una ciudad costera bajo la lluvia; la policía lo persigue; derrape a cámara lenta y explosión.",
+  "fps": 24,
+  "output": {
+    "width": 1080,
+    "height": 1920
+  },
+  "duration_sim": 19.0,
+  "world": {
+    "type": "coastal_city",
+    "seed": 7,
+    "y_min": -1000,
+    "y_max": 320,
+    "block": 80,
+    "turn_y": 0,
+    "west_extent": 420,
+    "font": "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",
+    "sky_strength": 1.0
+  },
+  "weather": {
+    "rain": true
+  },
+  "routes": {
+    "avenida_giro": {
+      "points": [
+        [
+          5,
+          -1100
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          -420,
+          3
+        ]
+      ],
+      "fillet": 17
+    },
+    "poli_choque": {
+      "points": [
+        [
+          -260,
+          -164
+        ],
+        [
+          3.2,
+          -164
+        ],
+        [
+          3.2,
+          -40
+        ],
+        [
+          5.4,
+          -14
+        ],
+        [
+          9.0,
+          11.0
+        ]
+      ],
+      "fillet": 11
+    },
+    "poli_giro": {
+      "points": [
+        [
+          -260,
+          -158
+        ],
+        [
+          1.0,
+          -158
+        ],
+        [
+          1.0,
+          6.5
+        ],
+        [
+          -420,
+          6.5
+        ]
+      ],
+      "fillet": 12
+    }
+  },
+  "actors": {
+    "heroe": {
+      "model": "sports",
+      "paint": [
+        0.8,
+        0.015,
+        0.04
+      ],
+      "underglow": [
+        1.0,
+        0.08,
+        0.55
+      ],
+      "route": "avenida_giro",
+      "speed": [
+        [
+          0,
+          30
+        ],
+        [
+          8,
+          30
+        ],
+        [
+          10,
+          37
+        ],
+        [
+          11.4,
+          37
+        ],
+        [
+          12.9,
+          20
+        ],
+        [
+          14.6,
+          20
+        ],
+        [
+          16.2,
+          31
+        ],
+        [
+          20,
+          34
+        ]
+      ],
+      "anchor": {
+        "t": 14.05,
+        "point": [
+          -7.0,
+          -9.8
+        ]
+      },
+      "physics": {
+        "grip": 7.5,
+        "max_slip": 0.66
+      }
+    },
+    "poli1": {
+      "model": "police",
+      "siren": true,
+      "siren_phase": 0.0,
+      "route": "poli_choque",
+      "follow": {
+        "actor": "heroe",
+        "join": [
+          3.2,
+          -150
+        ],
+        "gap": [
+          [
+            0,
+            26
+          ],
+          [
+            9.4,
+            22
+          ],
+          [
+            12,
+            9
+          ],
+          [
+            13.0,
+            6
+          ],
+          [
+            13.6,
+            5
+          ],
+          [
+            14.4,
+            -6
+          ],
+          [
+            15,
+            -10
+          ]
+        ]
+      },
+      "stop_at": [
+        8.4,
+        9.6
+      ],
+      "slip_extra": [
+        [
+          13.7,
+          0
+        ],
+        [
+          14.1,
+          -22
+        ],
+        [
+          14.4,
+          -48
+        ]
+      ],
+      "physics": {
+        "grip": 7.0,
+        "max_slip": 1.05,
+        "slip_lag": 0.25
+      }
+    },
+    "poli2": {
+      "model": "police",
+      "siren": true,
+      "siren_phase": 0.37,
+      "route": "poli_giro",
+      "follow": {
+        "actor": "heroe",
+        "join": [
+          1.0,
+          -150
+        ],
+        "gap": [
+          [
+            0,
+            40
+          ],
+          [
+            9.4,
+            36
+          ],
+          [
+            12,
+            25
+          ],
+          [
+            14,
+            22
+          ],
+          [
+            17,
+            24
+          ]
+        ]
+      },
+      "physics": {
+        "grip": 8.5,
+        "max_slip": 0.5
+      }
+    },
+    "poli3": {
+      "model": "police",
+      "siren": true,
+      "siren_phase": 0.71,
+      "route": "poli_giro",
+      "lane_offset": -2.6,
+      "follow": {
+        "actor": "heroe",
+        "join": [
+          1.0,
+          -150
+        ],
+        "gap": [
+          [
+            0,
+            56
+          ],
+          [
+            9.4,
+            52
+          ],
+          [
+            12,
+            40
+          ],
+          [
+            14,
+            37
+          ],
+          [
+            17,
+            40
+          ]
+        ]
+      },
+      "physics": {
+        "grip": 8.5,
+        "max_slip": 0.45
+      }
+    }
+  },
+  "props": [
+    {
+      "type": "barrels",
+      "at": [
+        10.4,
+        11.8
+      ],
+      "count": 9
+    },
+    {
+      "type": "parked_cars",
+      "seed": 3,
+      "positions": [
+        [
+          -6.6,
+          -300,
+          90
+        ],
+        [
+          -6.6,
+          -291,
+          90
+        ],
+        [
+          -6.6,
+          -232,
+          90
+        ],
+        [
+          -6.6,
+          -224,
+          90
+        ],
+        [
+          -6.6,
+          -128,
+          90
+        ],
+        [
+          -6.6,
+          -64,
+          90
+        ],
+        [
+          -6.6,
+          -56,
+          90
+        ],
+        [
+          -6.6,
+          -330,
+          90
+        ],
+        [
+          -30,
+          9.3,
+          180
+        ],
+        [
+          -39,
+          9.3,
+          180
+        ],
+        [
+          -70,
+          -3.4,
+          0
+        ]
+      ]
+    }
+  ],
+  "compositing": {
+    "fog": 0.45,
+    "fog_color": [
+      0.12,
+      0.06,
+      0.16
+    ],
+    "bloom": 0.75,
+    "mist_start": 30,
+    "mist_depth": 480,
+    "dispersion": 0.014,
+    "streaks": 0.0
+  },
+  "shots": [
+    {
+      "id": "s1_aereo",
+      "duration": 4.0,
+      "sim_start": 0.0,
+      "rain": false,
+      "description": "Plano aéreo de dron sobre el mar: skyline, avenida con neones, el deportivo es un punto de luz.",
+      "compositing": {
+        "mist_start": 120,
+        "mist_depth": 1600,
+        "fog": 0.35,
+        "dispersion": 0.006
+      },
+      "camera": {
+        "focus": "heroe",
+        "dof": false,
+        "smooth": 0.6,
+        "shake": 0.1,
+        "shake_freq": 1.4,
+        "keys": [
+          {
+            "t": 0.0,
+            "pos": {
+              "actor": "heroe",
+              "offset": [
+                170,
+                -230,
+                125
+              ],
+              "space": "world"
+            },
+            "target": {
+              "actor": "heroe",
+              "offset": [
+                -70,
+                140,
+                8
+              ],
+              "space": "world"
+            },
+            "lens": 28
+          },
+          {
+            "t": 4.0,
+            "pos": {
+              "actor": "heroe",
+              "offset": [
+                48,
+                -36,
+                26
+              ],
+              "space": "world"
+            },
+            "target": {
+              "actor": "heroe",
+              "offset": [
+                -12,
+                42,
+                2
+              ],
+              "space": "world"
+            },
+            "lens": 30
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2_avenida",
+      "duration": 4.0,
+      "sim_start": 4.0,
+      "description": "Travelling a ras de suelo: el deportivo adelanta a la cámara entre neones y reflejos de lluvia.",
+      "volumetric": {
+        "center": [
+          0,
+          -245,
+          9
+        ],
+        "size": [
+          80,
+          140,
+          18
+        ],
+        "density": 0.006
+      },
+      "camera": {
+        "focus": "heroe",
+        "fstop": 2.2,
+        "smooth": 0.18,
+        "shake": 0.018,
+        "shake_freq": 9.0,
+        "keys": [
+          {
+            "t": 0.0,
+            "pos": {
+              "actor": "heroe",
+              "offset": [
+                3.6,
+                21,
+                0.75
+              ],
+              "space": "world"
+            },
+            "target": {
+              "actor": "heroe",
+              "offset": [
+                0,
+                0,
+                1.5
+              ],
+              "space": "world"
+            },
+            "lens": 26,
+            "ease": "linear"
+          },
+          {
+            "t": 4.0,
+            "pos": {
+              "actor": "heroe",
+              "offset": [
+                3.7,
+                -14,
+                1.15
+              ],
+              "space": "world"
+            },
+            "target": {
+              "actor": "heroe",
+              "offset": [
+                -1,
+                4,
+                1.6
+              ],
+              "space": "world"
+            },
+            "lens": 30,
+            "roll": -4,
+            "ease": "linear"
+          }
+        ]
+      },
+      "pedestrians": [
+        {
+          "at": {
+            "actor": "heroe",
+            "t": 6.0,
+            "offset": [
+              -15.6,
+              -8,
+              0
+            ],
+            "space": "world"
+          },
+          "dir": 90,
+          "speed": 1.3,
+          "seed": 1
+        },
+        {
+          "at": {
+            "actor": "heroe",
+            "t": 6.0,
+            "offset": [
+              -15.2,
+              14,
+              0
+            ],
+            "space": "world"
+          },
+          "dir": -90,
+          "speed": 1.2,
+          "seed": 2
+        },
+        {
+          "at": {
+            "actor": "heroe",
+            "t": 6.0,
+            "offset": [
+              -16.0,
+              2,
+              0
+            ],
+            "space": "world"
+          },
+          "dir": -90,
+          "speed": 1.4,
+          "seed": 4
+        },
+        {
+          "at": {
+            "actor": "heroe",
+            "t": 6.0,
+            "offset": [
+              6.8,
+              6,
+              0
+            ],
+            "space": "world"
+          },
+          "dir": 90,
+          "speed": 1.1,
+          "seed": 3
+        }
+      ]
+    },
+    {
+      "id": "s3a_esquina",
+      "duration": 1.75,
+      "sim_start": 8.0,
+      "description": "Cámara en mano en la esquina: pasa el deportivo y los coches patrulla salen derrapando de la calle lateral.",
+      "volumetric": {
+        "center": [
+          -10,
+          -168,
+          8
+        ],
+        "size": [
+          80,
+          60,
+          16
+        ],
+        "density": 0.006
+      },
+      "fx": [
+        {
+          "type": "tire_smoke",
+          "actor": "poli1",
+          "rate": 16,
+          "min_drift": 0.5
+        }
+      ],
+      "camera": {
+        "focus": "poli1",
+        "fstop": 2.8,
+        "smooth": 0.22,
+        "shake": 0.035,
+        "shake_freq": 6.0,
+        "keys": [
+          {
+            "t": 0.0,
+            "pos": {
+              "world": [
+                8.7,
+                -178.0,
+                1.15
+              ]
+            },
+            "target": {
+              "actor": "heroe",
+              "offset": [
+                0,
+                0,
+                2.2
+              ],
+              "space": "world"
+            },
+            "lens": 20
+          },
+          {
+            "t": 0.55,
+            "pos": {
+              "world": [
+                8.7,
+                -177.6,
+                1.15
+              ]
+            },
+            "target": {
+              "actor": "heroe",
+              "offset": [
+                0,
+                0,
+                2.2
+              ],
+              "space": "world"
+            },
+            "lens": 20
+          },
+          {
+            "t": 1.2,
+            "pos": {
+              "world": [
+                8.6,
+                -177.0,
+                1.2
+              ]
+            },
+            "target": {
+              "world": [
+                -20,
+                -165,
+                3.5
+              ]
+            },
+            "lens": 22
+          },
+          {
+            "t": 1.75,
+            "pos": {
+              "world": [
+                8.5,
+                -176.5,
+                1.25
+              ]
+            },
+            "target": {
+              "actor": "poli1",
+              "offset": [
+                0,
+                0,
+                2.0
+              ],
+              "space": "world"
+            },
+            "lens": 24
+          }
+        ]
+      }
+    },
+    {
+      "id": "s3b_lateral",
+      "duration": 1.625,
+      "sim_start": 9.75,
+      "description": "Travelling lateral pegado al coche patrulla, sirenas iluminando el asfalto mojado.",
+      "camera": {
+        "focus": "poli1",
+        "fstop": 2.4,
+        "smooth": 0.15,
+        "shake": 0.025,
+        "shake_freq": 11.0,
+        "keys": [
+          {
+            "t": 0.0,
+            "pos": {
+              "actor": "poli1",
+              "offset": [
+                -1.0,
+                -4.3,
+                0.95
+              ],
+              "space": "heading"
+            },
+            "target": {
+              "actor": "poli1",
+              "offset": [
+                4,
+                0,
+                0.9
+              ],
+              "space": "heading"
+            },
+            "lens": 22
+          },
+          {
+            "t": 1.625,
+            "pos": {
+              "actor": "poli1",
+              "offset": [
+                2.2,
+                -4.0,
+                1.3
+              ],
+              "space": "heading"
+            },
+            "target": {
+              "actor": "poli1",
+              "offset": [
+                6,
+                0,
+                0.9
+              ],
+              "space": "heading"
+            },
+            "lens": 24,
+            "roll": -3
+          }
+        ]
+      }
+    },
+    {
+      "id": "s3c_frontal",
+      "duration": 1.625,
+      "sim_start": 11.375,
+      "description": "Cámara frontal retrocediendo delante del deportivo; las sirenas se acercan detrás.",
+      "camera": {
+        "focus": "heroe",
+        "fstop": 2.0,
+        "smooth": 0.14,
+        "shake": 0.025,
+        "shake_freq": 10.0,
+        "keys": [
+          {
+            "t": 0.0,
+            "pos": {
+              "actor": "heroe",
+              "offset": [
+                10.0,
+                -1.4,
+                1.15
+              ],
+              "space": "heading"
+            },
+            "target": {
+              "actor": "heroe",
+              "offset": [
+                -7,
+                0,
+                1.1
+              ],
+              "space": "heading"
+            },
+            "lens": 38
+          },
+          {
+            "t": 1.625,
+            "pos": {
+              "actor": "heroe",
+              "offset": [
+                6.5,
+                -0.6,
+                0.85
+              ],
+              "space": "heading"
+            },
+            "target": {
+              "actor": "heroe",
+              "offset": [
+                -6,
+                0,
+                1.2
+              ],
+              "space": "heading"
+            },
+            "lens": 34
+          }
+        ]
+      }
+    },
+    {
+      "id": "s4_derrape",
+      "duration": 4.0,
+      "sim_start": 13.4,
+      "speed_ramp": [
+        [
+          0,
+          1.0
+        ],
+        [
+          0.45,
+          0.33
+        ],
+        [
+          3.35,
+          0.33
+        ],
+        [
+          4.0,
+          1.0
+        ]
+      ],
+      "description": "Derrape en el cruce a cámara lenta: humo de neumáticos, marcas en el asfalto y el patrulla se estrella contra los bidones.",
+      "volumetric": {
+        "center": [
+          -2,
+          0,
+          8
+        ],
+        "size": [
+          70,
+          70,
+          16
+        ],
+        "density": 0.006
+      },
+      "compositing": {
+        "streaks": 0.25
+      },
+      "fx": [
+        {
+          "type": "tire_smoke",
+          "actor": "heroe",
+          "rate": 26
+        },
+        {
+          "type": "skid_marks",
+          "actor": "heroe"
+        },
+        {
+          "type": "tire_smoke",
+          "actor": "poli1",
+          "rate": 14
+        },
+        {
+          "type": "explosion",
+          "actor": "poli1",
+          "seed": 5,
+          "scale": 1.5
+        }
+      ],
+      "camera": {
+        "focus": "heroe",
+        "fstop": 4.0,
+        "smooth": 0.12,
+        "shake": 0.012,
+        "shake_freq": 3.0,
+        "shake_sim_time": true,
+        "keys": [
+          {
+            "t": 0.0,
+            "pos": {
+              "world": [
+                -6.5,
+                -9.5,
+                1.15
+              ]
+            },
+            "target": {
+              "blend": [
+                {
+                  "actor": "heroe",
+                  "offset": [
+                    0,
+                    0,
+                    1.4
+                  ],
+                  "space": "world"
+                },
+                {
+                  "world": [
+                    8.4,
+                    9.6,
+                    2.0
+                  ]
+                }
+              ],
+              "factor": 0.3
+            },
+            "lens": 28
+          },
+          {
+            "t": 4.0,
+            "pos": {
+              "world": [
+                -7.6,
+                -7.0,
+                1.45
+              ]
+            },
+            "target": {
+              "blend": [
+                {
+                  "actor": "heroe",
+                  "offset": [
+                    0,
+                    0,
+                    1.4
+                  ],
+                  "space": "world"
+                },
+                {
+                  "world": [
+                    8.4,
+                    9.6,
+                    2.5
+                  ]
+                }
+              ],
+              "factor": 0.5
+            },
+            "lens": 26
+          }
+        ]
+      },
+      "pedestrians": [
+        {
+          "at": {
+            "world": [
+              12.2,
+              6,
+              0
+            ]
+          },
+          "dir": 90,
+          "speed": 1.2,
+          "seed": 5,
+          "run": {
+            "t": 14.2,
+            "dir": 20,
+            "speed": 4.5
+          }
+        },
+        {
+          "at": {
+            "world": [
+              13.0,
+              3,
+              0
+            ]
+          },
+          "dir": 90,
+          "speed": 1.1,
+          "seed": 6,
+          "run": {
+            "t": 14.3,
+            "dir": -10,
+            "speed": 4.2
+          }
+        }
+      ]
+    },
+    {
+      "id": "s5_final",
+      "duration": 3.0,
+      "sim_start": "after_previous",
+      "description": "Grúa/dron ascendente sobre los restos en llamas: los coches se alejan hacia el centro iluminado.",
+      "volumetric": {
+        "center": [
+          -30,
+          4,
+          10
+        ],
+        "size": [
+          120,
+          60,
+          20
+        ],
+        "density": 0.004
+      },
+      "fx": [
+        {
+          "type": "explosion",
+          "actor": "poli1",
+          "seed": 5,
+          "scale": 1.5
+        }
+      ],
+      "camera": {
+        "focus": "heroe",
+        "fstop": 4.0,
+        "smooth": 0.35,
+        "shake": 0.05,
+        "shake_freq": 1.8,
+        "keys": [
+          {
+            "t": 0.0,
+            "pos": {
+              "world": [
+                23.0,
+                3.0,
+                3.2
+              ]
+            },
+            "target": {
+              "blend": [
+                {
+                  "actor": "heroe",
+                  "offset": [
+                    0,
+                    0,
+                    1.2
+                  ],
+                  "space": "world"
+                },
+                {
+                  "world": [
+                    8.4,
+                    9.6,
+                    2.0
+                  ]
+                }
+              ],
+              "factor": 0.25
+            },
+            "lens": 26
+          },
+          {
+            "t": 3.0,
+            "pos": {
+              "world": [
+                30.0,
+                -4.0,
+                34.0
+              ]
+            },
+            "target": {
+              "world": [
+                -160,
+                3,
+                0
+              ]
+            },
+            "lens": 28
+          }
+        ]
+      }
+    }
+  ],
+  "narration": {
+    "provider": "elevenlabs",
+    "voice": {
+      "name": "Omar - Narrador cálido y natural",
+      "voice_id": "ByH5CbhcFFMB34boGJdW",
+      "model_id": "eleven_v4",
+      "language": "es-ES"
+    },
+    "text": "[deep cinematic voice] Costa Neón. Medianoche. [pause] Un deportivo rojo... lluvia en el asfalto. [tense] Y nadie que lo pare. [intense] Hasta que llegan ellos. [dramatic, slow] Un giro. Un segundo. Todo... o nada. [whispers] En esta ciudad, solo sobrevive quien no frena.",
+    "file": "assets/narration/take1.mp3",
+    "split": "silence",
+    "phrases": [
+      {
+        "text": "Costa Neón.",
+        "at": 0.55
+      },
+      {
+        "text": "Medianoche.",
+        "at": 1.85
+      },
+      {
+        "text": "Un deportivo rojo...",
+        "at": 4.25
+      },
+      {
+        "text": "lluvia en el asfalto.",
+        "at": 5.6
+      },
+      {
+        "text": "Y nadie que lo pare.",
+        "at": 6.95
+      },
+      {
+        "text": "Hasta que llegan ellos.",
+        "at": 8.55
+      },
+      {
+        "text": "Un giro.",
+        "at": 13.25
+      },
+      {
+        "text": "Un segundo.",
+        "at": 14.25
+      },
+      {
+        "text": "Todo...",
+        "at": 15.35
+      },
+      {
+        "text": "o nada.",
+        "at": 16.05
+      },
+      {
+        "text": "En esta ciudad,",
+        "at": 17.15
+      },
+      {
+        "text": "solo sobrevive quien no frena.",
+        "at": 18.0
+      }
+    ]
+  },
+  "music": {
+    "bpm": 104,
+    "root": "A",
+    "style": "synthwave",
+    "gain_db": -9,
+    "drop_at": 8.0,
+    "slowmo_duck": true
+  },
+  "subtitles": {
+    "font": "Montserrat Black",
+    "size": 70,
+    "accent": "#FF2BD6",
+    "outline": "#14001E",
+    "margin_v": 560,
+    "title_font": "Bebas Neue"
+  },
+  "grade": {
+    "preset": "neon_noir",
+    "grain": 7,
+    "vignette": 0.35,
+    "sharpen": 0.6,
+    "flash_cuts": [
+      8.0,
+      13.0
+    ]
+  },
+  "titles": [
+    {
+      "text": "COSTA NEÓN",
+      "start": 0.3,
+      "end": 3.7,
+      "kicker": "MEDIANOCHE · LLUVIA · 03:12"
+    }
+  ]
+}
