@@ -1,0 +1,31 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1080
+PlayResY: 1920
+WrapStyle: 0
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Sub,Montserrat Black,70,&H00FFFFFF,&H00FFFFFF,&H001E0014,&H96000000,0,0,0,0,100,100,1,0,1,6,3,2,80,80,560,1
+Style: Title,Bebas Neue,210,&H00FFFFFF,&H00FFFFFF,&H00D62BFF,&H00000000,0,0,0,0,100,100,6,0,1,4,0,8,40,40,300,1
+Style: TitleGlow,Bebas Neue,210,&H00D62BFF,&H00D62BFF,&H00D62BFF,&H00000000,0,0,0,0,100,100,6,0,1,14,0,8,40,40,300,1
+Style: Kicker,Montserrat Black,44,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,12,0,1,3,0,8,40,40,520,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 1,0:00:00.57,0:00:01.71,Sub,,0,0,0,,{\fad(60,140)}{\alpha&HFF&\fscx125\fscy125\1c&H00D62BFF\t(0,1,\alpha&H00&)\t(0,90,\fscx100\fscy100)\t(385,505,\1c&H00FFFFFF&)}COSTA {\alpha&HFF&\fscx125\fscy125\1c&H00D62BFF\t(385,386,\alpha&H00&)\t(385,475,\fscx100\fscy100)\t(770,890,\1c&H00FFFFFF&)}NEÓN.
+Dialogue: 1,0:00:01.87,0:00:02.92,Sub,,0,0,0,,{\fad(60,140)}{\alpha&HFF&\fscx125\fscy125\1c&H00D62BFF\t(0,1,\alpha&H00&)\t(0,90,\fscx100\fscy100)\t(680,800,\1c&H00FFFFFF&)}MEDIANOCHE.
+Dialogue: 1,0:00:04.27,0:00:05.80,Sub,,0,0,0,,{\fad(60,140)}{\alpha&HFF&\fscx125\fscy125\1c&H00D62BFF\t(0,1,\alpha&H00&)\t(0,90,\fscx100\fscy100)\t(193,313,\1c&H00FFFFFF&)}UN {\alpha&HFF&\fscx125\fscy125\1c&H00D62BFF\t(193,194,\alpha&H00&)\t(193,283,\fscx100\fscy100)\t(725,845,\1c&H00FFFFFF&)}DEPORTIVO {\alpha&HFF&\fscx125\fscy125\1c&H00D62BFF\t(725,726,\alpha&H00&)\t(725,815,\fscx100\fscy100)\t(1160,1280,\1c&H00FFFFFF&)}ROJO...
+Dialogue: 1,0:00:05.62,0:00:07.17,Sub,,0,0,0,,{\fad(60,140)}{\alpha&HFF&\fscx125\fscy125\1c&H00D62BFF\t(0,1,\alpha&H00&)\t(0,90,\fscx100\fscy100)\t(363,483,\1c&H00FFFFFF&)}LLUVIA {\alpha&HFF&\fscx125\fscy125\1c&H00D62BFF\t(363,364,\alpha&H00&)\t(363,453,\fscx100\fscy100)\t(544,664,\1c&H00FFFFFF&)}EN {\alpha&HFF&\fscx125\fscy125\1c&H00D62BFF\t(544,545,\alpha&H00&)\t(544,634,\fscx100\fscy100)\t(726,846,\1c&H00FFFFFF&)}EL {\alpha&HFF&\fscx125\fscy125\1c&H00D62BFF\t(726,727,\alpha&H00&)\t(726,816,\fscx100\fscy100)\t(1179,1299,\1c&H00FFFFFF&)}ASFALTO.
+Dialogue: 1,0:00:06.97,0:00:08.49,Sub,,0,0,0,,{\fad(60,140)}{\alpha&HFF&\fscx125\fscy125\1c&H00D62BFF\t(0,1,\alpha&H00&)\t(0,90,\fscx100\fscy100)\t(132,252,\1c&H00FFFFFF&)}Y {\alpha&HFF&\fscx125\fscy125\1c&H00D62BFF\t(132,133,\alpha&H00&)\t(132,222,\fscx100\fscy100)\t(442,562,\1c&H00FFFFFF&)}NADIE {\alpha&HFF&\fscx125\fscy125\1c&H00D62BFF\t(442,443,\alpha&H00&)\t(442,532,\fscx100\fscy100)\t(663,783,\1c&H00FFFFFF&)}QUE {\alpha&HFF&\fscx125\fscy125\1c&H00D62BFF\t(663,664,\alpha&H00&)\t(663,753,\fscx100\fscy100)\t(840,960,\1c&H00FFFFFF&)}LO {\alpha&HFF&\fscx125\fscy125\1c&H00D62BFF\t(840,841,\alpha&H00&)\t(840,930,\fscx100\fscy100)\t(1149,1269,\1c&H00FFFFFF&)}PARE.
+Dialogue: 1,0:00:08.57,0:00:10.17,Sub,,0,0,0,,{\fad(60,140)}{\alpha&HFF&\fscx125\fscy125\1c&H00D62BFF\t(0,1,\alpha&H00&)\t(0,90,\fscx100\fscy100)\t(307,427,\1c&H00FFFFFF&)}HASTA {\alpha&HFF&\fscx125\fscy125\1c&H00D62BFF\t(307,308,\alpha&H00&)\t(307,397,\fscx100\fscy100)\t(527,647,\1c&H00FFFFFF&)}QUE {\alpha&HFF&\fscx125\fscy125\1c&H00D62BFF\t(527,528,\alpha&H00&)\t(527,617,\fscx100\fscy100)\t(878,998,\1c&H00FFFFFF&)}LLEGAN {\alpha&HFF&\fscx125\fscy125\1c&H00D62BFF\t(878,879,\alpha&H00&)\t(878,968,\fscx100\fscy100)\t(1230,1350,\1c&H00FFFFFF&)}ELLOS.
+Dialogue: 1,0:00:13.27,0:00:14.14,Sub,,0,0,0,,{\fad(60,140)}{\alpha&HFF&\fscx125\fscy125\1c&H00D62BFF\t(0,1,\alpha&H00&)\t(0,90,\fscx100\fscy100)\t(181,301,\1c&H00FFFFFF&)}UN {\alpha&HFF&\fscx125\fscy125\1c&H00D62BFF\t(181,182,\alpha&H00&)\t(181,271,\fscx100\fscy100)\t(500,620,\1c&H00FFFFFF&)}GIRO.
+Dialogue: 1,0:00:14.27,0:00:15.27,Sub,,0,0,0,,{\fad(60,140)}{\alpha&HFF&\fscx125\fscy125\1c&H00D62BFF\t(0,1,\alpha&H00&)\t(0,90,\fscx100\fscy100)\t(180,300,\1c&H00FFFFFF&)}UN {\alpha&HFF&\fscx125\fscy125\1c&H00D62BFF\t(180,181,\alpha&H00&)\t(180,270,\fscx100\fscy100)\t(630,750,\1c&H00FFFFFF&)}SEGUNDO.
+Dialogue: 1,0:00:15.37,0:00:16.06,Sub,,0,0,0,,{\fad(60,140)}{\alpha&HFF&\fscx125\fscy125\1c&H00D62BFF\t(0,1,\alpha&H00&)\t(0,90,\fscx100\fscy100)\t(319,439,\1c&H00FFFFFF&)}TODO...
+Dialogue: 1,0:00:16.07,0:00:16.89,Sub,,0,0,0,,{\fad(60,140)}{\alpha&HFF&\fscx125\fscy125\1c&H00D62BFF\t(0,1,\alpha&H00&)\t(0,90,\fscx100\fscy100)\t(134,254,\1c&H00FFFFFF&)}O {\alpha&HFF&\fscx125\fscy125\1c&H00D62BFF\t(134,135,\alpha&H00&)\t(134,224,\fscx100\fscy100)\t(449,569,\1c&H00FFFFFF&)}NADA.
+Dialogue: 1,0:00:17.17,0:00:18.26,Sub,,0,0,0,,{\fad(60,140)}{\alpha&HFF&\fscx125\fscy125\1c&H00D62BFF\t(0,1,\alpha&H00&)\t(0,90,\fscx100\fscy100)\t(151,271,\1c&H00FFFFFF&)}EN {\alpha&HFF&\fscx125\fscy125\1c&H00D62BFF\t(151,152,\alpha&H00&)\t(151,241,\fscx100\fscy100)\t(378,498,\1c&H00FFFFFF&)}ESTA {\alpha&HFF&\fscx125\fscy125\1c&H00D62BFF\t(378,379,\alpha&H00&)\t(378,468,\fscx100\fscy100)\t(719,839,\1c&H00FFFFFF&)}CIUDAD,
+Dialogue: 1,0:00:18.02,0:00:20.01,Sub,,0,0,0,,{\fad(60,140)}{\alpha&HFF&\fscx125\fscy125\1c&H00D62BFF\t(0,1,\alpha&H00&)\t(0,90,\fscx100\fscy100)\t(270,390,\1c&H00FFFFFF&)}SOLO {\alpha&HFF&\fscx125\fscy125\1c&H00D62BFF\t(270,271,\alpha&H00&)\t(270,360,\fscx100\fscy100)\t(765,885,\1c&H00FFFFFF&)}SOBREVIVE {\alpha&HFF&\fscx125\fscy125\1c&H00D62BFF\t(765,766,\alpha&H00&)\t(765,855,\fscx100\fscy100)\t(1080,1200,\1c&H00FFFFFF&)}QUIEN {\alpha&HFF&\fscx125\fscy125\1c&H00D62BFF\t(1080,1081,\alpha&H00&)\t(1080,1170,\fscx100\fscy100)\t(1260,1380,\1c&H00FFFFFF&)}NO {\alpha&HFF&\fscx125\fscy125\1c&H00D62BFF\t(1260,1261,\alpha&H00&)\t(1260,1350,\fscx100\fscy100)\t(1620,1740,\1c&H00FFFFFF&)}FRENA.
+Dialogue: 0,0:00:00.30,0:00:03.70,TitleGlow,,0,0,0,,{\blur18}{\fad(350,450)\fscx92\fscy92\t(0,3400,\fscx104\fscy104)}COSTA NEÓN
+Dialogue: 1,0:00:00.30,0:00:03.70,Title,,0,0,0,,{\fad(350,450)\fscx92\fscy92\t(0,3400,\fscx104\fscy104)}COSTA NEÓN
+Dialogue: 1,0:00:00.60,0:00:03.70,Kicker,,0,0,0,,{\fad(500,400)}MEDIANOCHE · LLUVIA · 03:12

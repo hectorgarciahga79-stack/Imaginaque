@@ -119,3 +119,27 @@ phrase is placed at its `at` time; the subtitles use those real timings.
 Everything is generated procedurally (geometry, materials, music, effects).
 Signs, place names and vehicle designs are original. No commercial assets
 from any video game are used. Fonts: Montserrat and Bebas Neue (SIL OFL).
+
+## Measured results (this prototype)
+
+Cloud environment without a GPU (4-thread Xeon @ 2.1 GHz, 16 GB RAM), `cpu_balanced` profile:
+
+| Shot | Frames | Render time |
+|---|---|---|
+| s1_aereo | 96 | 52 min |
+| s2_avenida | 96 | 61 min |
+| s3a_esquina | 42 | 28 min |
+| s3b_lateral | 39 | 27 min |
+| s3c_frontal | 39 | 21 min |
+| s4_derrape | 96 | ~55 min |
+| s5_final | 72 | 59 min |
+
+Total ≈ 5 h for 480 frames (≈ 30–38 s/frame). Audio + assembly + QA: < 3 min.
+Final QA: 1080×1920, H.264 High, 24 fps, AAC 48 kHz, 20.0 s, −14.2 LUFS,
+no black or frozen segments. On a modern GPU (`gpu_mid`/`gpu_high`) the
+same storyboard should drop to minutes (not measured: there was no GPU available).
+
+Not tested in this prototype: GPU paths (OPTIX/CUDA/HIP/METAL), volumetric
+fog in the final render (tested, but disabled in `cpu_balanced` because it doubles
+the CPU time) and rendering a storyboard generated with `tools/nuevo_guion.py`
+(validated only at simulation level).
