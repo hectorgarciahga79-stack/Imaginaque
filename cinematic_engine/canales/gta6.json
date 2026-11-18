@@ -1,0 +1,36 @@
+{
+  "name": "Canal GTA 6 (filosofía ImaginaQue / OtraRealidadXX)",
+  "tag": "GTA 6",
+  "voice": {"provider": "elevenlabs", "voice_id": "ByH5CbhcFFMB34boGJdW", "name": "Omar - Narrador cálido y natural", "model_id": "eleven_v4"},
+  "library": "canales/gta6_biblioteca.json",
+  "categories": {
+    "hipotetico":   {"label": "HISTORIA HIPOTÉTICA", "color": "#FF2BD6"},
+    "experimento":  {"label": "EXPERIMENTO",          "color": "#00C8FF"},
+    "historia":     {"label": "HISTORIA",             "color": "#FF8A00"},
+    "misterio":     {"label": "MISTERIO · TEORÍA",    "color": "#8A2BFF"},
+    "curiosidad":   {"label": "CURIOSIDAD",           "color": "#00B86B"},
+    "oficial":      {"label": "NOTICIA OFICIAL",      "color": "#00A2FF"},
+    "rumor":        {"label": "RUMOR · SIN CONFIRMAR", "color": "#FF3B30"},
+    "filtracion":   {"label": "FILTRACIÓN · SIN CONFIRMAR", "color": "#FF3B30"}
+  },
+  "rules": {
+    "min_duration": 60, "max_duration": 95, "target": [70, 90], "min_surprises": 2,
+    "sections_ref": 90,
+    "sections": {"gancho": [0, 3], "planteamiento": [3, 15], "desarrollo": [15, 40], "giro": [40, 60],
+                 "impacto": [60, 80], "desenlace": [80, 999]}
+  },
+  "defaults": {
+    "max_shot": 3.8,
+    "end_hold": 2.6,
+    "music_db": -28,
+    "sfx_db": -23,
+    "subtitles": {"accent": "#FFE500", "margin_v": 520},
+    "music": {"bpm": 100, "root": "A"},
+    "narration": {"lead": 0.1, "gap": 0.16}
+  },
+  "notes": [
+    "Las escenas son propias (ciudad costera de neón generada por código). No se usa material de Rockstar.",
+    "Noticias: SOLO con fuente verificable; marcar 'oficial', 'rumor' o 'filtracion'. Nunca presentar un rumor como oficial.",
+    "Hipotéticos e historias: dejar claro que es ficción ('Imagina que...', '¿Y si...?')."
+  ]
+}

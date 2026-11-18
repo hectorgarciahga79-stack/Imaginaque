@@ -76,17 +76,64 @@ def align_phrases(segs, phrases):
     return out[::-1]
 
 
+def _norm(w):
+    import unicodedata
+    w = unicodedata.normalize("NFD", w.lower())
+    return "".join(c for c in w if c.isalnum())
+
+
+def _script_words(text):
+    return [w for w in text.split() if _norm(w)]
+
+
+def transcribe_words(path):
+    """Marcas de tiempo por palabra (faster-whisper local, gratis). Se guardan
+    junto al audio (<audio>_words.json) para no repetir el cálculo."""
+    cache = os.path.splitext(path)[0] + "_words.json"
+    if os.path.exists(cache):
+        return json.load(open(cache, encoding="utf-8"))
+    try:
+        from faster_whisper import WhisperModel
+    except ImportError:
+        return None
+    y16 = np.frombuffer(subprocess.run(["ffmpeg", "-v", "error", "-i", path, "-f", "f32le", "-ac", "1", "-ar", "16000", "-"],
+                                       capture_output=True, check=True).stdout, np.float32)
+    m = WhisperModel("small", device="cpu", compute_type="int8")
+    segs, _ = m.transcribe(y16, language="es", word_timestamps=True, beam_size=1)
+    words = [[round(w.start, 3), round(w.end, 3), w.word.strip()] for sg in segs for w in sg.words]
+    json.dump(words, open(cache, "w", encoding="utf-8"), ensure_ascii=False)
+    return words
+
+
 def build_voice(story, out_dir):
-    """Devuelve (pista_voz, tiempos de frase en el vídeo)."""
+    """Devuelve (pista_voz, tiempos de frase en el vídeo).
+
+    Con marcas por palabra (whisper) cada frase del guion se localiza por
+    recuento de palabras y los subtítulos usan los tiempos reales de cada
+    palabra; sin ellas, se alinea por silencios (programación dinámica)."""
     nar = story["narration"]
     path = nar["file"] if os.path.isabs(nar["file"]) else os.path.join(ENGINE_DIR, nar["file"])
     y = N._decode(path)
-    segs = N.split_by_silence(y, 999, thresh_db=nar.get("thresh_db", -38.0), min_sil=0.12)
     beats = story["beats"]
-    spans = align_phrases(segs, beats)
+    words = transcribe_words(path) if nar.get("word_timing", True) else None
+    per_phrase = None
+    if words:
+        counts = [len(_script_words(b["say"])) for b in beats]
+        if sum(counts) == len(words):
+            per_phrase, k = [], 0
+            for c in counts:
+                per_phrase.append(words[k:k + c])
+                k += c
+        else:
+            print("[viral] aviso: el guion tiene %d palabras y la voz %d; alineo por silencios" % (sum(counts), len(words)))
+    if per_phrase:
+        spans = [(ws[0][0], ws[-1][1]) for ws in per_phrase]
+    else:
+        segs = N.split_by_silence(y, 999, thresh_db=nar.get("thresh_db", -38.0), min_sil=0.12)
+        spans = align_phrases(segs, beats)
     lead = nar.get("lead", 0.12)
     gap = nar.get("gap", 0.14)
-    total_est = lead + sum(b - a for a, b in spans) + gap * len(spans) + 4
+    total_est = lead + sum(b - a for a, b in spans) + (gap + 0.6) * len(spans) + 4
     track = np.zeros(int(total_est * SR) + SR, dtype=np.float32)
     t = lead
     timing = []
@@ -99,7 +146,12 @@ def build_voice(story, out_dir):
         clip[-f:] *= np.linspace(1, 0, f)
         st = int(t * SR)
         track[st:st + len(clip)] += clip
-        timing.append({"text": beat["say"], "start": t + 0.03, "end": t + (b - a) + 0.03})
+        item = {"text": beat["say"], "start": t + 0.03, "end": t + (b - a) + 0.03}
+        if per_phrase:
+            sw = _script_words(beat["say"])
+            item["words"] = [[t + 0.03 + (w0 - a), t + 0.03 + (w1 - a), txt]
+                             for (w0, w1, _), txt in zip(per_phrase[i], sw)]
+        timing.append(item)
         t += (ib - ia) / SR + gap
     with open(os.path.join(out_dir, "voz_timing.json"), "w", encoding="utf-8") as fh:
         json.dump(timing, fh, ensure_ascii=False, indent=1)
@@ -117,6 +169,41 @@ def beat_times(timing, story):
 def _src_dir(story, name):
     src = story["sources"][name]
     return src if os.path.isabs(src) else os.path.join(ENGINE_DIR, src)
+
+
+def split_beat(story, beat, dur):
+    """Divide un beat largo en sub-planos (cambio visual cada 2-4 s).
+
+    'cuts' explícitos: lista de variaciones (heredan del beat). Si no hay y
+    el beat dura más de 'max_shot', se reencuadra el mismo plano por tramos
+    (zoom y centro alternos), que el ojo percibe como un plano nuevo."""
+    cuts = beat.get("cuts")
+    if not cuts:
+        max_shot = story.get("max_shot", 99)
+        if dur <= max_shot:
+            return [(beat, dur)]
+        k = int(np.ceil(dur / (max_shot * 0.82)))
+        a = beat.get("a", 1)
+        b = beat.get("b") or (a + 47)
+        n = b - a + 1
+        frames = [(a + n * j // k, a + n * (j + 1) // k - 1) for j in range(k)]
+        frames = [(fa, max(fa + 1, fb)) for fa, fb in frames]
+        centers = [[0.5, 0.5], [0.4, 0.55], [0.6, 0.45], [0.5, 0.62]]
+        zooms = [[1.0, 1.08], [1.18, 1.26], [1.06, 1.14], [1.24, 1.16]]
+        cuts = [{"a": fa, "b": fb, "center": centers[j % 4], "zoom": zooms[j % 4]} for j, (fa, fb) in enumerate(frames)]
+        if beat.get("hold"):
+            cuts[-1]["hold"] = beat["hold"]
+    w = [c.get("w", 1.0) for c in cuts]
+    out = []
+    for c, wi in zip(cuts, w):
+        sub = dict(beat)
+        sub.pop("cuts", None)
+        sub.pop("hold", None) if "hold" not in c else None
+        sub.update(c)
+        if out:  # destellos/glitch solo en el primer sub-plano
+            sub.pop("flash", None) if "flash" not in c else None
+        out.append((sub, dur * wi / sum(w)))
+    return out
 
 
 def render_beat(story, beat, dur, out_path):
@@ -147,7 +234,8 @@ def render_beat(story, beat, dur, out_path):
     N_ = max(1, n_out - 1)
     ease = beat.get("ease", "out")
     prog = "(on/%d)" % N_ if ease == "linear" else "(1-pow(1-on/%d,3))" % N_
-    zexp = "%.4f+(%.4f)*%s" % (z0, z1 - z0, prog)
+    punch = beat.get("punch", 0.045)
+    zexp = "%.4f+(%.4f)*%s+%.3f*exp(-on/2.5)" % (z0, z1 - z0, prog, punch)
     sx = "+%d*sin(on*2.7)*exp(-on/%d)" % (shake, max(4, n_out // 2)) if shake else ""
     sy = "+%d*cos(on*3.3)*exp(-on/%d)" % (shake, max(4, n_out // 2)) if shake else ""
     xexp = "max(0,min(iw-iw/zoom,(iw-iw/zoom)*%.3f%s))" % (cx, sx)
@@ -189,6 +277,10 @@ Style: HookAccent,Bebas Neue,196,&H0000E5FF,&H0000E5FF,&H00000000,&H64000000,0,0
 Style: Stamp,Bebas Neue,150,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,6,0,3,0,0,7,60,60,300,1
 Style: Draw,Arial,20,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,0,0,7,0,0,0,1
 Style: Q,Bebas Neue,150,&H00FFFFFF,&H00FFFFFF,&H00000000,&H78000000,0,0,0,0,100,100,2,0,1,10,5,5,60,60,0,1
+Style: Badge,Montserrat Black,34,&H00FFFFFF,&H00FFFFFF,&H00D62BFF,&H00D62BFF,0,0,0,0,100,100,2,0,3,10,0,7,0,0,0,1
+Style: Tag,Bebas Neue,64,&H00FFFFFF,&H00FFFFFF,&H00000000,&H64000000,0,0,0,0,100,100,2,0,1,5,2,9,0,0,0,1
+Style: Chunk,Montserrat Black,84,&H00FFFFFF,&H00FFFFFF,&H00140014,&H96000000,0,0,0,0,100,100,1,0,1,7,3,2,70,70,520,1
+Style: Punch,Montserrat Black,120,&H0000E5FF,&H0000E5FF,&H00140014,&H96000000,0,0,0,0,100,100,1,0,1,9,4,2,60,60,520,1
 Style: CTA,Montserrat Black,52,&H00000000,&H00000000,&H0000E5FF,&H0000E5FF,0,0,0,0,100,100,1,0,3,14,0,5,60,60,0,1
 """
 
@@ -198,11 +290,21 @@ def build_overlay(story, timing, spans, out_path):
                    **story.get("subtitles", {}))
     tmp = out_path + ".subs"
     subs = [t for t, b in zip(timing, story["beats"]) if not b.get("no_sub")]
-    SUB.build_ass(subs, tmp, W, H, sub_cfg, None)
+    chunked = all("words" in t for t in subs)
+    SUB.build_ass([] if chunked else subs, tmp, W, H, sub_cfg, None)
     base = open(tmp, encoding="utf-8").read()
     os.remove(tmp)
     base = base.replace("\n[Events]", "\n" + EXTRA_STYLES + "\n[Events]")
     ev = []
+    if chunked:
+        ev += chunk_subtitles(subs, sub_cfg)
+    banner = story.get("_channel", {}).get("categories", {}).get(story.get("category", ""), None)
+    if banner:
+        ev.append("Dialogue: 5,%s,%s,Badge,,0,0,0,,{\\an7\\pos(42,64)\\3c%s\\4c%s}%s" % (
+            _ts(0), _ts(spans[-1][1]), SUB._ass_color(banner["color"]), SUB._ass_color(banner["color"]), banner["label"]))
+        tag = story["_channel"].get("tag")
+        if tag:
+            ev.append("Dialogue: 5,%s,%s,Tag,,0,0,0,,{\\an9\\pos(1038,64)}%s" % (_ts(0), _ts(spans[-1][1]), tag))
     total = spans[-1][1]
     for beat, (s, e) in zip(story["beats"], spans):
         txt = beat.get("text")
@@ -236,6 +338,46 @@ def build_overlay(story, timing, spans, out_path):
     with open(out_path, "w", encoding="utf-8") as fh:
         fh.write(base.rstrip("\n") + "\n" + "\n".join(ev) + "\n")
     return out_path
+
+
+def chunk_subtitles(subs, cfg):
+    """Bloques de 2-3 palabras con la palabra hablada resaltada; las frases de
+    golpe (<=3 palabras) en grande, amarillas e inclinadas."""
+    accent = SUB._ass_color(cfg.get("accent", "#FFE500"))
+    mv = cfg.get("margin_v", 520)
+    lines = []
+    for ph in subs:
+        ws = ph["words"]
+        if not ws:
+            continue
+        if len(ws) <= 3:
+            txt = " ".join(w[2].upper() for w in ws)
+            lines.append("Dialogue: 2,%s,%s,Punch,,0,0,%d,,{\\fad(30,90)\\frz-4\\fscx135\\fscy135"
+                         "\\t(0,130,\\fscx100\\fscy100)}%s" % (_ts(ws[0][0] - 0.03), _ts(ph["end"] + 0.3), mv, txt))
+            continue
+        chunks, cur = [], []
+        for w in ws:
+            cur.append(w)
+            if len(cur) == 3 or (len(cur) >= 2 and w[2][-1:] in ",.;:?!…"):
+                chunks.append(cur)
+                cur = []
+        if cur:
+            if len(cur) == 1 and chunks and len(chunks[-1]) < 4:
+                chunks[-1] += cur
+            else:
+                chunks.append(cur)
+        for k, ch in enumerate(chunks):
+            t0 = ch[0][0] - 0.03
+            t1 = chunks[k + 1][0][0] - 0.03 if k + 1 < len(chunks) else ph["end"] + 0.3
+            parts = []
+            for w in ch:
+                ws_ = int((w[0] - t0) * 1000)
+                we_ = int((w[1] - t0) * 1000)
+                parts.append("{\\1c&H00FFFFFF&\\t(%d,%d,\\1c%s\\fscx112\\fscy112)\\t(%d,%d,\\1c&H00FFFFFF&\\fscx100\\fscy100)}%s" % (
+                    ws_, ws_ + 1, accent, we_, we_ + 60, w[2].upper()))
+            lines.append("Dialogue: 2,%s,%s,Chunk,,0,0,%d,,{\\fad(20,40)\\fscx108\\fscy108\\t(0,90,\\fscx100\\fscy100)}%s" % (
+                _ts(t0), _ts(t1), mv, " ".join(parts)))
+    return lines
 
 
 # ------------------------------------------------------------------ sonido
@@ -364,22 +506,86 @@ GRADE = ("colorbalance=rs=-0.04:bs=0.07:rh=0.05:bh=0.02,eq=contrast=1.08:saturat
          "vignette=angle=0.45,unsharp=5:5:0.7:5:5:0,noise=alls=3:allf=t")
 
 
-def make(story_path, out_dir=None):
+def load_story(story_path):
+    """Historia + valores por defecto del canal (canales/<canal>.json)."""
     story = json.load(open(story_path, encoding="utf-8"))
+    ch = story.get("channel")
+    if ch:
+        cfg = json.load(open(os.path.join(ENGINE_DIR, "canales", ch + ".json"), encoding="utf-8"))
+        story["_channel"] = cfg
+        for k, v in cfg.get("defaults", {}).items():
+            if isinstance(v, dict):
+                story[k] = dict(v, **story.get(k, {}))
+            else:
+                story.setdefault(k, v)
+        lib = cfg.get("library")
+        if lib:
+            libd = json.load(open(os.path.join(ENGINE_DIR, lib), encoding="utf-8"))
+            story["sources"] = dict(libd["sources"], **story.get("sources", {}))
+            clips = {c["id"]: c for c in libd["clips"]}
+            for b in story["beats"]:  # 'clip': id de la biblioteca -> src/a/b/centro
+                for target in [b] + b.get("cuts", []):
+                    if "clip" in target:
+                        c = clips[target["clip"]]
+                        for k in ("src", "a", "b", "center"):
+                            if k in c:
+                                target.setdefault(k, c[k])
+    return story
+
+
+def retention_report(story, timing, spans, clips_count):
+    """Comprueba las reglas del canal y devuelve un informe (y errores)."""
+    total = spans[-1][1]
+    ch = story.get("_channel", {})
+    rules = ch.get("rules", {})
+    errors, warns = [], []
+    if total < rules.get("min_duration", 0):
+        errors.append("Duración %.1f s < mínimo %.0f s: amplía el guion (no se rellena)." % (total, rules["min_duration"]))
+    if total > rules.get("max_duration", 1e9):
+        warns.append("Duración %.1f s > máximo recomendado %.0f s." % (total, rules["max_duration"]))
+    shots = [e - s for s, e in spans]
+    sections = {}
+    for name, (a, b) in rules.get("sections", {}).items():
+        a, b = a * total / rules.get("sections_ref", total), b * total / rules.get("sections_ref", total)
+        sections[name] = [i for i, (s, e) in enumerate(spans) if a <= s < b]
+    surprises = [i for i, b in enumerate(story["beats"]) if b.get("surprise")]
+    if len(surprises) < rules.get("min_surprises", 0):
+        warns.append("Solo %d momentos sorprendentes marcados (mínimo %d)." % (len(surprises), rules["min_surprises"]))
+    if not story.get("ending", {}).get("question"):
+        warns.append("Falta la pregunta final para comentarios.")
+    first = story["beats"][0]
+    if not first.get("text"):
+        warns.append("El gancho (beat 0) no tiene texto grande.")
+    rep = {"duration": round(total, 2), "phrases": len(spans), "visual_changes": clips_count,
+           "avg_seconds_per_change": round(total / max(1, clips_count), 2), "longest_phrase_s": round(max(shots), 2),
+           "surprises": surprises, "sections": sections, "warnings": warns, "errors": errors}
+    return rep
+
+
+def make(story_path, out_dir=None):
+    story = load_story(story_path)
     name = os.path.splitext(os.path.basename(story_path))[0]
     out_dir = out_dir or os.path.join(ENGINE_DIR, "projects", "virales", name)
     work = os.path.join(out_dir, "beats")
     os.makedirs(work, exist_ok=True)
     voice, timing = build_voice(story, out_dir)
     spans = beat_times(timing, story)
+    pre = retention_report(story, timing, spans, 1)
+    if pre["errors"]:
+        raise SystemExit("[viral] " + " ".join(pre["errors"]))
     clips = []
+    t_cum = 0.0
     for i, (beat, (s, e)) in enumerate(zip(story["beats"], spans)):
         import hashlib
         key = hashlib.md5((json.dumps(beat, sort_keys=True) + "%.3f" % (e - s)).encode()).hexdigest()[:8]
-        p = os.path.join(work, "%02d_%s.mp4" % (i, key))
-        if not os.path.exists(p):
-            render_beat(story, beat, e - s, p)
-        clips.append(p)
+        for j, (sub, sd) in enumerate(split_beat(story, beat, e - s)):
+            nfr = int(round((t_cum + sd) * FPS)) - int(round(t_cum * FPS))
+            t_cum += sd
+            sd = nfr / FPS
+            p = os.path.join(work, "%02d_%d_%s_%d.mp4" % (i, j, key, nfr))
+            if not os.path.exists(p):
+                render_beat(story, sub, sd, p)
+            clips.append(p)
         print("[viral] beat %02d %.2f-%.2f %s" % (i, s, e, beat["say"]))
     lst = os.path.join(work, "lista.txt")
     with open(lst, "w") as fh:
@@ -397,5 +603,11 @@ def make(story_path, out_dir=None):
     sheet = os.path.join(out_dir, name + "_contactos.jpg")
     _run(["ffmpeg", "-y", "-v", "error", "-i", out, "-vf", "fps=1,scale=216:384,tile=10x%d" % (int(total) // 10 + 1),
           "-frames:v", "1", sheet])
-    print("[viral] %s  (%.1f s, %d beats, cambio de plano cada %.2f s)" % (out, total, len(clips), total / len(clips)))
+    rep = retention_report(story, timing, spans, len(clips))
+    with open(os.path.join(out_dir, "informe_retencion.json"), "w", encoding="utf-8") as fh:
+        json.dump(rep, fh, ensure_ascii=False, indent=1)
+    for w in rep["warnings"]:
+        print("[viral] aviso:", w)
+    print("[viral] %s  (%.1f s, %d frases, %d cambios visuales, uno cada %.2f s)" % (
+        out, total, len(spans), len(clips), total / len(clips)))
     return out

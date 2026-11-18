@@ -1,0 +1,313 @@
+{
+ "sources": {
+  "s1": "projects/persecucion_costa_neon/renders/cpu_balanced/s1_aereo",
+  "s2": "projects/persecucion_costa_neon/renders/cpu_balanced/s2_avenida",
+  "s3a": "projects/persecucion_costa_neon/renders/cpu_balanced/s3a_esquina",
+  "s3b": "projects/persecucion_costa_neon/renders/cpu_balanced/s3b_lateral",
+  "s3c": "projects/persecucion_costa_neon/renders/cpu_balanced/s3c_frontal",
+  "s4": "projects/persecucion_costa_neon/renders/cpu_balanced/s4_derrape",
+  "s5": "projects/persecucion_costa_neon/renders/cpu_balanced/s5_final",
+  "placa": "projects/insertos/placa",
+  "movil": "projects/insertos/movil",
+  "camara": "projects/insertos/camara_trafico",
+  "g1": "projects/gta6_memoria/renders/fast/g1_lucia_calle",
+  "g2": "projects/gta6_memoria/renders/fast/g2_patrulla_lenta",
+  "g3": "projects/gta6_memoria/renders/fast/g3_azul_semaforo",
+  "g4": "projects/gta6_memoria/renders/fast/g4_bloqueo",
+  "g5": "projects/gta6_memoria/renders/fast/g5_coche_vacio"
+ },
+ "clips": [
+  {
+   "id": "ciudad_aerea",
+   "src": "s1",
+   "a": 1,
+   "b": 96,
+   "tags": [
+    "ciudad",
+    "vice",
+    "city",
+    "costa",
+    "noche",
+    "gta",
+    "leonida",
+    "mapa",
+    "imagina",
+    "version",
+    "historia",
+    "mundo"
+   ]
+  },
+  {
+   "id": "avenida_llega",
+   "src": "s2",
+   "a": 1,
+   "b": 40,
+   "tags": [
+    "avenida",
+    "neon",
+    "deportivo",
+    "coche",
+    "rojo",
+    "escapan",
+    "noche"
+   ]
+  },
+  {
+   "id": "deportivo_pasa",
+   "src": "s2",
+   "a": 38,
+   "b": 66,
+   "center": [
+    0.6,
+    0.6
+   ],
+   "tags": [
+    "deportivo",
+    "rojo",
+    "coche",
+    "velocidad",
+    "fondo",
+    "pisa",
+    "acelera"
+   ]
+  },
+  {
+   "id": "deportivo_se_aleja",
+   "src": "s2",
+   "a": 64,
+   "b": 96,
+   "tags": [
+    "se",
+    "aleja",
+    "escapan",
+    "pierden",
+    "huida",
+    "calle"
+   ]
+  },
+  {
+   "id": "patrullas_salen",
+   "src": "s3a",
+   "a": 1,
+   "b": 42,
+   "tags": [
+    "patrullas",
+    "policia",
+    "persigue",
+    "perseguir",
+    "persecucion",
+    "sirenas",
+    "detras"
+   ]
+  },
+  {
+   "id": "patrulla_lateral",
+   "src": "s3b",
+   "a": 1,
+   "b": 39,
+   "tags": [
+    "patrulla",
+    "policia",
+    "sirenas",
+    "comisaria",
+    "persiguen",
+    "cara",
+    "olvida"
+   ]
+  },
+  {
+   "id": "frontal_huida",
+   "src": "s3c",
+   "a": 1,
+   "b": 39,
+   "tags": [
+    "huida",
+    "detras",
+    "golpe",
+    "jason",
+    "lucia",
+    "escapan",
+    "frente"
+   ]
+  },
+  {
+   "id": "derrape_inicio",
+   "src": "s4",
+   "a": 1,
+   "b": 26,
+   "tags": [
+    "cruce",
+    "giro",
+    "frena",
+    "grita"
+   ]
+  },
+  {
+   "id": "derrape_humo",
+   "src": "s4",
+   "a": 24,
+   "b": 64,
+   "center": [
+    0.65,
+    0.55
+   ],
+   "tags": [
+    "derrape",
+    "humo",
+    "giro",
+    "imposible"
+   ]
+  },
+  {
+   "id": "explosion",
+   "src": "s4",
+   "a": 64,
+   "b": 96,
+   "center": [
+    0.8,
+    0.5
+   ],
+   "tags": [
+    "explosion",
+    "choque",
+    "fuego",
+    "playa",
+    "boom"
+   ]
+  },
+  {
+   "id": "ciudad_humo",
+   "src": "s5",
+   "a": 1,
+   "b": 72,
+   "tags": [
+    "humo",
+    "disipa",
+    "final",
+    "ciudad",
+    "rastro",
+    "desaparece"
+   ]
+  },
+  {
+   "id": "placa",
+   "src": "placa",
+   "a": 1,
+   "b": 72,
+   "tags": [
+    "placa",
+    "nombre",
+    "asfalto"
+   ]
+  },
+  {
+   "id": "movil",
+   "src": "movil",
+   "a": 1,
+   "b": 60,
+   "tags": [
+    "movil",
+    "mensaje",
+    "numero",
+    "desconocido",
+    "vibrando",
+    "palabras",
+    "telefono"
+   ]
+  },
+  {
+   "id": "camara_trafico",
+   "src": "camara",
+   "a": 1,
+   "b": 48,
+   "tags": [
+    "camaras",
+    "camara",
+    "semaforos",
+    "matricula",
+    "apuntado",
+    "vigilan",
+    "graban"
+   ]
+  },
+  {
+   "id": "lucia_calle",
+   "src": "g1",
+   "a": 1,
+   "b": 72,
+   "tags": [
+    "lucia",
+    "calle",
+    "comprar",
+    "mañana",
+    "dependiente",
+    "tienda",
+    "caminar",
+    "sale"
+   ]
+  },
+  {
+   "id": "patrulla_lenta",
+   "src": "g2",
+   "a": 1,
+   "b": 72,
+   "tags": [
+    "patrulla",
+    "despacio",
+    "tarde",
+    "pasa",
+    "vigila",
+    "calle",
+    "dos",
+    "veces"
+   ]
+  },
+  {
+   "id": "coche_azul_semaforo",
+   "src": "g3",
+   "a": 1,
+   "b": 72,
+   "tags": [
+    "azul",
+    "pinta",
+    "pintar",
+    "semaforo",
+    "cruce",
+    "sirve",
+    "nada",
+    "coche"
+   ]
+  },
+  {
+   "id": "bloqueo",
+   "src": "g4",
+   "a": 1,
+   "b": 72,
+   "tags": [
+    "bloqueo",
+    "cierran",
+    "esperan",
+    "espera",
+    "salida",
+    "tres",
+    "patrullas",
+    "lluvia",
+    "saben"
+   ]
+  },
+  {
+   "id": "coche_vacio",
+   "src": "g5",
+   "a": 1,
+   "b": 84,
+   "tags": [
+    "vacio",
+    "nadie",
+    "rastro",
+    "asiento",
+    "deportivo",
+    "desaparecido"
+   ]
+  }
+ ]
+}

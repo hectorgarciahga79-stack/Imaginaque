@@ -9,6 +9,9 @@ PROFILES = {
     # CPU sin GPU (este equipo): 720x1280 + reescalado, ~10-20 s/fotograma
     "cpu_draft": {"resolution": (540, 960), "samples": 10, "adaptive_threshold": 0.05, "motion_blur": True,
                   "volumetrics": False, "rain_density": 0.8, "smoke": True},
+    # vídeos de retención: planos cortos y baratos (calidad secundaria)
+    "fast": {"resolution": (540, 960), "samples": 8, "adaptive_threshold": 0.06, "motion_blur": True,
+             "volumetrics": False, "rain_density": 0.7, "smoke": True},
     # (la caja de niebla volumetrica duplica el coste en CPU: se usa niebla por pase Mist)
     "cpu_balanced": {"resolution": (720, 1280), "samples": 14, "adaptive_threshold": 0.04, "motion_blur": True,
                      "volumetrics": False, "volume_step_rate": 4.0, "rain_density": 1.0, "smoke": True},

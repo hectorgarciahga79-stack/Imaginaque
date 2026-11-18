@@ -1,0 +1,457 @@
+{
+ "title": "¿Y si la policía de GTA 6 nunca olvidara?",
+ "channel": "gta6",
+ "category": "hipotetico",
+ "narration": {
+  "file": "assets/narration/gta6_memoria_take1.mp3",
+  "gap": 0.12
+ },
+ "music": {
+  "drop_beat": 3
+ },
+ "beats": [
+  {
+   "say": "Imagina que en GTA 6 la policía nunca olvida tu cara.",
+   "clip": "patrulla_lateral",
+   "a": 1,
+   "b": 39,
+   "zoom": [
+    1.12,
+    1.02
+   ],
+   "text": "LA POLICÍA NUNCA OLVIDA",
+   "accent": true,
+   "flash": true,
+   "sfx": [
+    "impact"
+   ]
+  },
+  {
+   "say": "Ni tu coche. Ni dónde duermes.",
+   "clip": "coche_vacio",
+   "a": 1,
+   "b": 84,
+   "zoom": [
+    1.0,
+    1.12
+   ],
+   "music": "dip",
+   "sfx": [
+    "whoosh_down"
+   ]
+  },
+  {
+   "say": "Jason y Lucia acaban de dar su primer golpe en Vice City.",
+   "clip": "ciudad_aerea",
+   "a": 1,
+   "b": 96,
+   "zoom": [
+    1.12,
+    1.02
+   ],
+   "text": "VICE CITY · 03:12",
+   "accent": true
+  },
+  {
+   "say": "Un deportivo rojo, tres patrullas detrás y una avenida llena de neón.",
+   "clip": "patrullas_salen",
+   "a": 1,
+   "b": 42,
+   "zoom": [
+    1.0,
+    1.1
+   ]
+  },
+  {
+   "say": "Escapan. Como siempre.",
+   "clip": "deportivo_pasa",
+   "a": 38,
+   "b": 66,
+   "center": [
+    0.6,
+    0.6
+   ],
+   "zoom": [
+    1.08,
+    1.24
+   ],
+   "shake": 8,
+   "sfx": [
+    "hit"
+   ]
+  },
+  {
+   "say": "Cambian de calle, apagan las luces y las sirenas se pierden.",
+   "clip": "deportivo_se_aleja",
+   "a": 64,
+   "b": 96,
+   "zoom": [
+    1.0,
+    1.1
+   ]
+  },
+  {
+   "say": "En cualquier otro GTA, aquí se acabaría todo.",
+   "clip": "ciudad_aerea",
+   "a": 32,
+   "b": 63,
+   "zoom": [
+    1.12,
+    1.02
+   ]
+  },
+  {
+   "say": "Pero en esta versión, la ciudad tiene memoria.",
+   "clip": "camara_trafico",
+   "a": 1,
+   "b": 48,
+   "zoom": [
+    1.0,
+    1.12
+   ],
+   "music": "dip",
+   "sfx": [
+    "whoosh_down"
+   ],
+   "text": "LA CIUDAD RECUERDA",
+   "accent": true
+  },
+  {
+   "say": "A la mañana siguiente, Lucia sale a comprar tabaco.",
+   "clip": "lucia_calle",
+   "a": 1,
+   "b": 72,
+   "zoom": [
+    1.12,
+    1.02
+   ]
+  },
+  {
+   "say": "Y el dependiente se la queda mirando un segundo de más.",
+   "clip": "lucia_calle",
+   "a": 24,
+   "b": 47,
+   "zoom": [
+    1.0,
+    1.1
+   ]
+  },
+  {
+   "say": "Esa tarde, una patrulla pasa dos veces por su calle.",
+   "clip": "patrulla_lenta",
+   "a": 1,
+   "b": 72,
+   "zoom": [
+    1.12,
+    1.02
+   ],
+   "text": "2 VECES",
+   "accent": true,
+   "music": "dip"
+  },
+  {
+   "say": "Despacio. Muy despacio.",
+   "clip": "patrulla_lenta",
+   "a": 24,
+   "b": 47,
+   "zoom": [
+    1.08,
+    1.24
+   ],
+   "shake": 8,
+   "sfx": [
+    "heartbeat"
+   ],
+   "music": "dip"
+  },
+  {
+   "say": "Jason pinta el coche de azul.",
+   "clip": "coche_azul_semaforo",
+   "a": 1,
+   "b": 72,
+   "zoom": [
+    1.12,
+    1.02
+   ]
+  },
+  {
+   "say": "No sirve de nada.",
+   "clip": "coche_azul_semaforo",
+   "a": 24,
+   "b": 47,
+   "zoom": [
+    1.0,
+    1.1
+   ]
+  },
+  {
+   "say": "Las cámaras de los semáforos ya tienen su matrícula.",
+   "clip": "camara_trafico",
+   "a": 16,
+   "b": 36,
+   "zoom": [
+    1.12,
+    1.02
+   ]
+  },
+  {
+   "say": "Cada cruce que pasan queda apuntado en comisaría.",
+   "clip": "patrulla_lateral",
+   "a": 13,
+   "b": 33,
+   "zoom": [
+    1.0,
+    1.1
+   ]
+  },
+  {
+   "say": "Y entonces ocurre algo que ningún GTA había hecho nunca.",
+   "clip": "ciudad_aerea",
+   "a": 63,
+   "b": 94,
+   "zoom": [
+    1.12,
+    1.02
+   ],
+   "pause": 0.25,
+   "sfx": [
+    "riser"
+   ]
+  },
+  {
+   "say": "La policía deja de perseguirlos.",
+   "clip": "patrullas_salen",
+   "a": 14,
+   "b": 34,
+   "zoom": [
+    1.0,
+    1.1
+   ],
+   "surprise": true,
+   "flash": true
+  },
+  {
+   "say": "Ahora los espera.",
+   "clip": "bloqueo",
+   "a": 1,
+   "b": 72,
+   "zoom": [
+    1.08,
+    1.24
+   ],
+   "shake": 8,
+   "sfx": [
+    "impact"
+   ],
+   "text": "LOS ESPERA",
+   "accent": true,
+   "music": "cut"
+  },
+  {
+   "say": "Saben a qué hora salen. Saben qué calles cogen.",
+   "clip": "patrulla_lenta",
+   "a": 47,
+   "b": 70,
+   "zoom": [
+    1.0,
+    1.1
+   ]
+  },
+  {
+   "say": "Una noche de lluvia, en la avenida de la costa…",
+   "clip": "avenida_llega",
+   "a": 1,
+   "b": 40,
+   "zoom": [
+    1.12,
+    1.02
+   ]
+  },
+  {
+   "say": "tres patrullas les cierran el único cruce sin salida.",
+   "clip": "bloqueo",
+   "a": 24,
+   "b": 47,
+   "zoom": [
+    1.0,
+    1.1
+   ],
+   "sfx": [
+    "siren"
+   ]
+  },
+  {
+   "say": "Jason pisa a fondo.",
+   "clip": "frontal_huida",
+   "a": 1,
+   "b": 39,
+   "zoom": [
+    1.04,
+    1.2
+   ],
+   "shake": 12,
+   "flash": true,
+   "sfx": [
+    "whoosh",
+    "impact"
+   ]
+  },
+  {
+   "say": "Lucia le grita que frene.",
+   "clip": "derrape_inicio",
+   "a": 1,
+   "b": 26,
+   "zoom": [
+    1.04,
+    1.2
+   ],
+   "shake": 12,
+   "flash": true,
+   "sfx": [
+    "whoosh",
+    "impact"
+   ]
+  },
+  {
+   "say": "Derrape. Humo. Y una explosión que se ve desde la playa.",
+   "clip": "explosion",
+   "a": 64,
+   "b": 96,
+   "center": [
+    0.8,
+    0.5
+   ],
+   "zoom": [
+    1.04,
+    1.2
+   ],
+   "shake": 12,
+   "flash": true,
+   "sfx": [
+    "explosion",
+    "metal"
+   ],
+   "surprise": true,
+   "music": "cut"
+  },
+  {
+   "say": "Cuando el humo se disipa, el deportivo está vacío.",
+   "clip": "coche_vacio",
+   "a": 28,
+   "b": 55,
+   "zoom": [
+    1.04,
+    1.2
+   ],
+   "shake": 12,
+   "flash": true,
+   "sfx": [
+    "whoosh",
+    "impact"
+   ],
+   "pause": 0.3,
+   "music": "dip"
+  },
+  {
+   "say": "Ni rastro de Jason. Ni rastro de Lucia.",
+   "clip": "coche_vacio",
+   "a": 55,
+   "b": 82,
+   "zoom": [
+    1.0,
+    1.12
+   ],
+   "music": "dip",
+   "sfx": [
+    "whoosh_down"
+   ],
+   "text": "NI RASTRO",
+   "accent": true
+  },
+  {
+   "say": "Solo un móvil vibrando en el asiento.",
+   "clip": "movil",
+   "a": 1,
+   "b": 60,
+   "zoom": [
+    1.0,
+    1.12
+   ],
+   "music": "dip",
+   "sfx": [
+    "heartbeat"
+   ]
+  },
+  {
+   "say": "Un mensaje de un número desconocido.",
+   "clip": "movil",
+   "a": 20,
+   "b": 40,
+   "zoom": [
+    1.12,
+    1.02
+   ],
+   "music": "dip"
+  },
+  {
+   "say": "Seis palabras.",
+   "clip": "movil",
+   "a": 39,
+   "b": 59,
+   "zoom": [
+    1.08,
+    1.24
+   ],
+   "shake": 8,
+   "sfx": [
+    "hit"
+   ],
+   "pause": 0.25,
+   "music": "cut"
+  },
+  {
+   "say": "Yo también me acuerdo de vosotros.",
+   "clip": "movil",
+   "a": 1,
+   "b": 21,
+   "zoom": [
+    1.12,
+    1.02
+   ],
+   "text": "«YO TAMBIÉN ME ACUERDO DE VOSOTROS»",
+   "accent": true,
+   "surprise": true,
+   "flash": true,
+   "sfx": [
+    "impact"
+   ]
+  },
+  {
+   "say": "Si la policía de GTA 6 recordara todo, ¿sería el mejor GTA de la historia… o imposible de jugar?",
+   "clip": "ciudad_humo",
+   "a": 1,
+   "b": 72,
+   "zoom": [
+    1.0,
+    1.1
+   ]
+  },
+  {
+   "say": "Y sobre todo: ¿quién mandó ese mensaje?",
+   "clip": "movil",
+   "a": 20,
+   "b": 40,
+   "zoom": [
+    1.0,
+    1.1
+   ],
+   "hold": 2.2,
+   "no_sub": true
+  }
+ ],
+ "ending": {
+  "question": "¿QUIÉN MANDÓ EL MENSAJE?",
+  "cta": "COMENTA TU TEORÍA"
+ },
+ "end_hold": 2.3
+}

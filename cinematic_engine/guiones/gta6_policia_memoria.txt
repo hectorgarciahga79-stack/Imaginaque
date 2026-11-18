@@ -1,0 +1,34 @@
+# GTA 6 · Hipotético · "¿Y si la policía nunca olvidara?"
+Imagina que en GTA 6 la policía nunca olvida tu cara. | clip=patrulla_lateral texto="LA POLICÍA NUNCA OLVIDA"
+Ni tu coche. Ni dónde duermes. | clip=coche_vacio
+Jason y Lucia acaban de dar su primer golpe en Vice City. | clip=ciudad_aerea texto="VICE CITY · 03:12"
+Un deportivo rojo, tres patrullas detrás y una avenida llena de neón. | clip=patrullas_salen
+Escapan. Como siempre. | clip=deportivo_pasa
+Cambian de calle, apagan las luces y las sirenas se pierden. | clip=deportivo_se_aleja
+En cualquier otro GTA, aquí se acabaría todo. | clip=ciudad_aerea
+Pero en esta versión, la ciudad tiene memoria. | clip=camara_trafico texto="LA CIUDAD RECUERDA" musica=dip
+A la mañana siguiente, Lucia sale a comprar tabaco. | clip=lucia_calle
+Y el dependiente se la queda mirando un segundo de más. | clip=lucia_calle
+Esa tarde, una patrulla pasa dos veces por su calle. | clip=patrulla_lenta texto="2 VECES" musica=dip
+Despacio. Muy despacio. | clip=patrulla_lenta sfx=heartbeat musica=dip
+Jason pinta el coche de azul. | clip=coche_azul_semaforo
+No sirve de nada. | clip=coche_azul_semaforo
+Las cámaras de los semáforos ya tienen su matrícula. | clip=camara_trafico
+Cada cruce que pasan queda apuntado en comisaría. | clip=patrulla_lateral
+Y entonces ocurre algo que ningún GTA había hecho nunca. | clip=ciudad_aerea pausa=0.25 sfx=riser
+La policía deja de perseguirlos. | clip=patrullas_salen sorpresa
+Ahora los espera. | clip=bloqueo texto="LOS ESPERA" musica=cut sfx=impact
+Saben a qué hora salen. Saben qué calles cogen. | clip=patrulla_lenta
+Una noche de lluvia, en la avenida de la costa… | clip=avenida_llega
+tres patrullas les cierran el único cruce sin salida. | clip=bloqueo sfx=siren
+Jason pisa a fondo. | clip=frontal_huida
+Lucia le grita que frene. | clip=derrape_inicio
+Derrape. Humo. Y una explosión que se ve desde la playa. | clip=explosion sorpresa sfx=explosion,metal musica=cut
+Cuando el humo se disipa, el deportivo está vacío. | clip=coche_vacio pausa=0.3 musica=dip
+Ni rastro de Jason. Ni rastro de Lucia. | clip=coche_vacio texto="NI RASTRO" musica=dip
+Solo un móvil vibrando en el asiento. | clip=movil sfx=heartbeat musica=dip
+Un mensaje de un número desconocido. | clip=movil musica=dip
+Seis palabras. | clip=movil pausa=0.25 musica=cut sfx=hit
+Yo también me acuerdo de vosotros. | clip=movil texto="«YO TAMBIÉN ME ACUERDO DE VOSOTROS»" sorpresa sfx=impact
+Si la policía de GTA 6 recordara todo, ¿sería el mejor GTA de la historia… o imposible de jugar? | clip=ciudad_humo
+Y sobre todo: ¿quién mandó ese mensaje? | clip=movil hold=2.2
