@@ -95,8 +95,11 @@ def assemble(sb, proj, prof, output=None):
     return out
 
 
-def qa(video, proj):
-    """Control de calidad automático del MP4 + hoja de contactos."""
+def qa(video, proj, duration_range=(19.7, 20.3)):
+    """Control de calidad automático del MP4 + hoja de contactos.
+
+    duration_range: (mín, máx) en segundos; por defecto el prototipo de 20 s.
+    """
     pr = json.loads(_run(["ffprobe", "-v", "error", "-show_streams", "-show_format", "-of", "json", video]).stdout)
     v = next(s for s in pr["streams"] if s["codec_type"] == "video")
     a = next((s for s in pr["streams"] if s["codec_type"] == "audio"), None)
@@ -125,7 +128,7 @@ def qa(video, proj):
         "h264": v["codec_name"] == "h264",
         "yuv420p": v["pix_fmt"] == "yuv420p",
         "audio_aac": bool(a) and a["codec_name"] == "aac",
-        "duration_ok": abs(rep["duration"] - 20.0) < 0.3,
+        "duration_ok": duration_range[0] <= rep["duration"] <= duration_range[1],
         "loudness_tiktok": abs(rep.get("loudness_lufs", -99) + 14) < 1.5,
     }
     rep["checks"] = checks

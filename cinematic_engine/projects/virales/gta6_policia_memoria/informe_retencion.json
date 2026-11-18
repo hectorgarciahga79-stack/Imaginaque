@@ -1,0 +1,75 @@
+{
+ "duration": 88.08,
+ "phrases": 33,
+ "visual_changes": 37,
+ "avg_seconds_per_change": 2.38,
+ "longest_phrase_s": 6.16,
+ "surprises": [
+  17,
+  24,
+  30
+ ],
+ "sections": {
+  "gancho": [
+   0
+  ],
+  "planteamiento": [
+   1,
+   2,
+   3,
+   4
+  ],
+  "desarrollo": [
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12,
+   13,
+   14
+  ],
+  "giro": [
+   15,
+   16,
+   17,
+   18,
+   19,
+   20,
+   21,
+   22
+  ],
+  "impacto": [
+   23,
+   24,
+   25,
+   26,
+   27,
+   28,
+   29,
+   30,
+   31
+  ],
+  "desenlace": [
+   32
+  ]
+ },
+ "warnings": [],
+ "errors": [],
+ "qa": {
+  "checks": {
+   "vertical_1080x1920": true,
+   "h264": true,
+   "yuv420p": true,
+   "audio_aac": true,
+   "duration_ok": true,
+   "loudness_tiktok": true
+  },
+  "loudness_lufs": -14.7,
+  "size_mb": 88.73,
+  "black_segments": [],
+  "frozen_segments": []
+ }
+}

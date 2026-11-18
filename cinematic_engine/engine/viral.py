@@ -604,6 +604,12 @@ def make(story_path, out_dir=None):
     _run(["ffmpeg", "-y", "-v", "error", "-i", out, "-vf", "fps=1,scale=216:384,tile=10x%d" % (int(total) // 10 + 1),
           "-frames:v", "1", sheet])
     rep = retention_report(story, timing, spans, len(clips))
+    rules = story.get("_channel", {}).get("rules", {})
+    from engine import post
+    q = post.qa(out, out_dir, (rules.get("min_duration", 20), rules.get("max_duration", 95)))
+    rep["qa"] = {"checks": q["checks"], "loudness_lufs": q["loudness_lufs"], "size_mb": q["size_mb"],
+                 "black_segments": q["black_segments"], "frozen_segments": q["frozen_segments"]}
+    rep["warnings"] += ["QA: falla %s" % k for k, ok in q["checks"].items() if not ok]
     with open(os.path.join(out_dir, "informe_retencion.json"), "w", encoding="utf-8") as fh:
         json.dump(rep, fh, ensure_ascii=False, indent=1)
     for w in rep["warnings"]:

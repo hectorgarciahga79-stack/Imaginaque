@@ -42,3 +42,30 @@ SFX on every cut, ducking of the music under the voice, −14 LUFS.
 # -> projects/virales/la_placa/la_placa.mp4  (~1–2 min with the footage already rendered)
 .venv/bin/python run.py inserto "R. VEGA"   # close-up shot of the badge (~8 min CPU)
 ```
+
+## GTA 6 channel (`canales/gta6.json`)
+
+Channel defaults (voice, music, subtitles, rules) are merged into every story
+with `"channel": "gta6"`. Rules: **minimum 60 s** (the build aborts below it),
+target 70–90 s, at least 2 `surprise` beats, sections gancho 0–3 s,
+planteamiento 3–15, desarrollo 15–40, giro 40–60, impacto 60–80, desenlace 80+.
+
+`category` sets the top banner: `hipotetico`, `experimento`, `historia`,
+`misterio`, `curiosidad`, `oficial`, `rumor`, `filtracion`. News must cite a
+source; rumours and leaks always carry their own label ("SIN CONFIRMAR").
+Hypotheticals open with "Imagina que…"/"¿Y si…?". Visuals are original
+procedural scenes; Jason, Lucía, Vice City are only named in the narration.
+
+Workflow (one video):
+
+1. Write the script, one phrase per line, optional directives after `|`
+   (`clip=`, `texto=`, `sorpresa`, `pausa=`, `musica=dip|cut`, `look=`, `hold=`, `sfx=`).
+   See `guiones/gta6_policia_memoria.txt`.
+2. `python tools/historia_desde_guion.py guiones/x.txt historias/x.json --categoria misterio --voz assets/narration/x.mp3 --pregunta "¿…?"`
+   — picks footage from `canales/gta6_biblioteca.json` and writes `historias/x_elevenlabs.txt`.
+3. Generate the voice from that text (ElevenLabs, voice in the channel file) into `assets/narration/x.mp3`.
+4. `python run.py viral historias/x.json` → `projects/virales/x/x.mp4`, plus
+   `informe_retencion.json` (sections, surprises, shot rhythm and technical QA).
+
+New footage: add a shot to a storyboard (`storyboards/gta6_memoria.json`),
+render it with the `fast` profile and register it as a clip in the library.
