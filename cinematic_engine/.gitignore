@@ -5,3 +5,4 @@ projects/*/renders/
 projects/*/render_log.txt
 projects/*/audio/stem_*.wav
 *.blend1
+projects/insertos/*/*.png

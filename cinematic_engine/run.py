@@ -150,9 +150,25 @@ def cmd_all(args):
     print("Total: %.1f min" % ((time.time() - t) / 60))
 
 
+def cmd_viral(args):
+    """Vídeo de retención a partir de una historia (historias/*.json)."""
+    from engine import viral
+    viral.make(args.target, args.output)
+
+
+def cmd_inserto(args):
+    """Plano detalle barato (de momento: placa de policía con nombre)."""
+    import bpy  # noqa: F401
+    from engine import inserts
+    out = args.output or os.path.join(HERE, "projects", "insertos", "placa")
+    inserts.render_badge(out, name_text=args.target or "R. VEGA",
+                         font=os.path.join(HERE, "assets", "fonts", "Montserrat-Black.otf"))
+
+
 def main():
     ap = argparse.ArgumentParser(description="Cinematic Engine 3D")
-    ap.add_argument("command", choices=["audit", "base", "shots", "audio", "post", "check", "all", "_shot"])
+    ap.add_argument("command", choices=["audit", "base", "shots", "audio", "post", "check", "all", "_shot", "viral", "inserto"])
+    ap.add_argument("target", nargs="?", help="viral: historia JSON; inserto: texto del nombre")
     ap.add_argument("-s", "--storyboard", default=os.path.join(HERE, "storyboards", "persecucion_costa_neon.json"))
     ap.add_argument("-p", "--profile", default="auto")
     ap.add_argument("--only")
@@ -165,7 +181,8 @@ def main():
     ap.add_argument("-o", "--output")
     args = ap.parse_args()
     {"audit": cmd_audit, "base": cmd_base, "shots": cmd_shots, "audio": cmd_audio, "post": cmd_post,
-     "check": cmd_check, "all": cmd_all, "_shot": _shot_worker}[args.command](args)
+     "check": cmd_check, "all": cmd_all, "_shot": _shot_worker,
+     "viral": cmd_viral, "inserto": cmd_inserto}[args.command](args)
 
 
 if __name__ == "__main__":
