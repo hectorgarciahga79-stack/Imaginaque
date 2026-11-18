@@ -39,7 +39,7 @@
     {"say": "Solo encontraron una placa de policía en el asfalto.", "src": "placa", "a": 1, "b": 48, "zoom": [1.0, 1.06], "sfx": ["heartbeat"], "music": "dip"},
     {"say": "Con su nombre.", "src": "placa", "a": 49, "b": 72, "hold": 0.3, "zoom": [1.0, 1.08], "pause": 0.2, "text": "CON SU NOMBRE", "accent": true, "sfx": ["hit"], "music": "cut"},
     {"say": "Pero él todavía llevaba la suya puesta.", "src": "s3b", "a": 15, "b": 39, "zoom": [1.1, 1.25], "look": "bw", "sfx": ["riser"], "music": "dip"},
-    {"say": "¿Quién conducía el deportivo?", "src": "s2", "a": 41, "b": 49, "hold": 2.6, "zoom": [1.0, 1.0], "circle": [660, 1350, 230], "circle_at": "hold",
+    {"say": "¿Quién conducía el deportivo?", "src": "s2", "a": 41, "b": 49, "hold": 2.6, "zoom": [1.0, 1.0], "circle": [680, 1320, 240], "circle_at": "hold",
      "no_sub": true, "sfx": ["impact"]}
   ],
   "ending": {"question": "¿QUIÉN CONDUCÍA?", "cta": "COMENTA TU TEORÍA"}

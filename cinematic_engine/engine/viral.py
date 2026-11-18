@@ -131,7 +131,7 @@ def render_beat(story, beat, dur, out_path):
     play = max(1, n_out - hold)
     stretch = beat.get("speed")
     stretch = (play / n_src) if stretch in (None, "fit") else 1.0 / float(stretch)
-    f = []
+    f = ["trim=end_frame=%d" % n_src, "setpts=PTS-STARTPTS"]
     if beat.get("reverse"):
         f.append("reverse")
     f.append("setpts=%.5f*PTS" % stretch)
@@ -167,7 +167,7 @@ def render_beat(story, beat, dur, out_path):
         f.append("fade=t=in:st=0:d=0.17:color=white")
     f.append("format=yuv420p")
     cmd = ["ffmpeg", "-y", "-v", "error", "-framerate", str(FPS), "-start_number", str(a),
-           "-i", os.path.join(d, "%04d.png"), "-frames:v", str(n_src), "-vf", ",".join(f),
+           "-i", os.path.join(d, "%04d.png"), "-vf", ",".join(f),
            "-frames:v", str(n_out), "-c:v", "libx264", "-preset", "veryfast", "-crf", "12", "-an", out_path]
     _run(cmd)
     return out_path
@@ -184,9 +184,9 @@ def _circle_path(r):
         -r, k, -r, r, -k, r, r, k, k, r, r, -k, r, -r, k, -r, -k, -r, -r, -k, -r))
 
 
-EXTRA_STYLES = """Style: Hook,Bebas Neue,168,&H00FFFFFF,&H00FFFFFF,&H00000000,&H64000000,0,0,0,0,100,100,3,0,1,9,4,8,50,50,250,1
-Style: HookAccent,Bebas Neue,168,&H0000E5FF,&H0000E5FF,&H00000000,&H64000000,0,0,0,0,100,100,3,0,1,9,4,8,50,50,250,1
-Style: Stamp,Bebas Neue,120,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,6,0,3,0,0,7,60,60,300,1
+EXTRA_STYLES = """Style: Hook,Bebas Neue,196,&H00FFFFFF,&H00FFFFFF,&H00000000,&H64000000,0,0,0,0,100,100,3,0,1,9,4,8,50,50,250,1
+Style: HookAccent,Bebas Neue,196,&H0000E5FF,&H0000E5FF,&H00000000,&H64000000,0,0,0,0,100,100,3,0,1,9,4,8,50,50,250,1
+Style: Stamp,Bebas Neue,150,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,6,0,3,0,0,7,60,60,300,1
 Style: Draw,Arial,20,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,0,0,7,0,0,0,1
 Style: Q,Bebas Neue,150,&H00FFFFFF,&H00FFFFFF,&H00000000,&H78000000,0,0,0,0,100,100,2,0,1,10,5,5,60,60,0,1
 Style: CTA,Montserrat Black,52,&H00000000,&H00000000,&H0000E5FF,&H0000E5FF,0,0,0,0,100,100,1,0,3,14,0,5,60,60,0,1
@@ -194,7 +194,7 @@ Style: CTA,Montserrat Black,52,&H00000000,&H00000000,&H0000E5FF,&H0000E5FF,0,0,0
 
 
 def build_overlay(story, timing, spans, out_path):
-    sub_cfg = dict({"font": "Montserrat Black", "size": 78, "accent": "#FFE500", "margin_v": 600},
+    sub_cfg = dict({"font": "Montserrat Black", "size": 78, "accent": "#FFE500", "margin_v": 470},
                    **story.get("subtitles", {}))
     tmp = out_path + ".subs"
     subs = [t for t, b in zip(timing, story["beats"]) if not b.get("no_sub")]
@@ -265,7 +265,8 @@ def sfx_bank():
     def heartbeat():
         out = np.zeros(int(1.6 * SR))
         for st in (0.0, 0.28, 0.8, 1.08):
-            c = _tone(52, 0.35, 14) * 0.9 + _tone(90, 0.2, 30) * 0.3
+            c = _tone(52, 0.35, 14) * 0.9
+            c[:int(0.2 * SR)] += _tone(90, 0.2, 30) * 0.3
             A.place(out[None, :], c[None, :], st)
         return A.pan(np.tanh(out * 1.5), 0)
 
@@ -360,7 +361,7 @@ def build_audio(story, voice, timing, spans, out_dir):
 
 # ------------------------------------------------------------------ montaje
 GRADE = ("colorbalance=rs=-0.04:bs=0.07:rh=0.05:bh=0.02,eq=contrast=1.08:saturation=1.25:gamma=0.97,"
-         "vignette=angle=0.45,unsharp=5:5:0.7:5:5:0,noise=alls=6:allf=t")
+         "vignette=angle=0.45,unsharp=5:5:0.7:5:5:0,noise=alls=3:allf=t")
 
 
 def make(story_path, out_dir=None):
@@ -373,8 +374,11 @@ def make(story_path, out_dir=None):
     spans = beat_times(timing, story)
     clips = []
     for i, (beat, (s, e)) in enumerate(zip(story["beats"], spans)):
-        p = os.path.join(work, "%02d.mp4" % i)
-        render_beat(story, beat, e - s, p)
+        import hashlib
+        key = hashlib.md5((json.dumps(beat, sort_keys=True) + "%.3f" % (e - s)).encode()).hexdigest()[:8]
+        p = os.path.join(work, "%02d_%s.mp4" % (i, key))
+        if not os.path.exists(p):
+            render_beat(story, beat, e - s, p)
         clips.append(p)
         print("[viral] beat %02d %.2f-%.2f %s" % (i, s, e, beat["say"]))
     lst = os.path.join(work, "lista.txt")
@@ -387,12 +391,11 @@ def make(story_path, out_dir=None):
     vf = GRADE + ",ass='%s':fontsdir='%s',format=yuv420p" % (ass, FONTS)
     _run(["ffmpeg", "-y", "-v", "error", "-f", "concat", "-safe", "0", "-i", lst, "-i", wav,
           "-vf", vf, "-af", "loudnorm=I=-14:TP=-1.0:LRA=11,aresample=48000",
-          "-c:v", "libx264", "-preset", "slow", "-crf", "18", "-profile:v", "high", "-pix_fmt", "yuv420p",
+          "-c:v", "libx264", "-preset", "slow", "-crf", "20", "-maxrate", "12M", "-bufsize", "24M", "-profile:v", "high", "-pix_fmt", "yuv420p",
           "-r", str(FPS), "-g", str(FPS * 2), "-movflags", "+faststart",
           "-c:a", "aac", "-b:a", "256k", "-ar", "48000", "-t", "%.3f" % total, out])
     sheet = os.path.join(out_dir, name + "_contactos.jpg")
     _run(["ffmpeg", "-y", "-v", "error", "-i", out, "-vf", "fps=1,scale=216:384,tile=10x%d" % (int(total) // 10 + 1),
           "-frames:v", "1", sheet])
-    shutil.rmtree(work, ignore_errors=True)
     print("[viral] %s  (%.1f s, %d beats, cambio de plano cada %.2f s)" % (out, total, len(clips), total / len(clips)))
     return out
