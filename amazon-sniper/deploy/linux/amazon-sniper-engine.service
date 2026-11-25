@@ -1,0 +1,19 @@
+# systemd --user unit. Installed by install.sh into ~/.config/systemd/user/
+[Unit]
+Description=AMAZON SNIPER - motor de investigacion
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=%h/amazon-sniper/engine
+ExecStart=%h/amazon-sniper/.venv/bin/python -m sniper run --quiet
+Restart=always
+RestartSec=20
+# resource control
+Nice=10
+CPUQuota=50%
+MemoryMax=600M
+
+[Install]
+WantedBy=default.target

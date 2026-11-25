@@ -1,0 +1,14 @@
+[Unit]
+Description=AMAZON SNIPER - panel web privado (127.0.0.1:3210)
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=%h/amazon-sniper/web
+ExecStart=/usr/bin/env npm run start
+Restart=always
+RestartSec=10
+Environment=NODE_ENV=production
+
+[Install]
+WantedBy=default.target

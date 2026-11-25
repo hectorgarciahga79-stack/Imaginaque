@@ -1,0 +1,9 @@
+data/*
+!data/.gitkeep
+web/node_modules/
+web/.next/
+web/next-env.d.ts
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
