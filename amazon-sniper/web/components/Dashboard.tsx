@@ -109,7 +109,7 @@ export default function Dashboard() {
   const st = STATUS_META[ov?.status || "offline"] || STATUS_META.offline;
   const uptime = ov?.started_at && ov.status !== "offline" && ov.status !== "stopped" ? duration(ov.now - ov.started_at) : "—";
   const blocks = Object.entries(ov?.blocks || {});
-  const foreignGeo = ov?.delivery_location && !/espa/i.test(ov.delivery_location);
+  const foreignGeo = ov?.delivery_location && !/espa|\b\d{5}\b|actualizar|update/i.test(ov.delivery_location);
 
   return (
     <div className="mx-auto max-w-7xl px-4 pb-16 sm:px-6">

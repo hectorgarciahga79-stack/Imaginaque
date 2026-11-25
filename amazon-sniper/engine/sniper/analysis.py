@@ -10,6 +10,7 @@ Amazon's strike-through / recommended price is stored but NEVER used as referenc
 """
 from __future__ import annotations
 
+import re
 import sqlite3
 import statistics
 import time
@@ -214,7 +215,7 @@ def evaluate(conn: sqlite3.Connection, obs: Observation, idn: Identity, s: Setti
     if ref.source == "prior":
         info -= 0.3
         warnings.append("referencia_estimada_sin_historial")
-    if obs.geo and "espa" not in obs.geo.lower():
+    if obs.geo and not re.search(r"espa|\b\d{5}\b|actualizar|update", obs.geo, re.I):  # Spain / postcode / not set
         info -= 0.1
         warnings.append(f"ubicacion_entrega:{obs.geo}")
     comps["info_quality"] = max(0.0, info)
